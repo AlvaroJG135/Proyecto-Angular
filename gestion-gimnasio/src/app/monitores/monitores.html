@@ -3,11 +3,21 @@
     @for (monitor of monitores; track monitor.id){
     <li (click)="onSelect(monitor)">
         <a routerLink="/detalle/{{monitor.id}}">
-        <span class="badge">{{monitor.id}}</span> {{monitor.nombre}}
+            <span class="badge">{{monitor.id}}</span> {{monitor.nombre}}
         </a>
+        <button class="delete" title="Borrar monitor" (click)="delete(monitor)">x</button>
     </li>
     }
 </ul>
+<div>
+    <label>Nombre del Monitor:
+        <input #monitorNombre />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(monitorNombre.value); monitorNombre.value=''">
+        add
+    </button>
+</div>
+
 
 <app-monitor-detalle [monitor]="selectedMonitor"></app-monitor-detalle>
-

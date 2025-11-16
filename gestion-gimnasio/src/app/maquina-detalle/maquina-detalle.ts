@@ -1,15 +1,15 @@
 import { UpperCasePipe } from '@angular/common';
-import { Component,  Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Maquina } from '../maquina';
-import { GestionarMaquinas }  from '../servicios/gestionar-maquinas';
+import { GestionarMaquinas } from '../servicios/gestionar-maquinas';
 
 
 @Component({
   selector: 'app-maquina-detalle',
-  imports:[FormsModule,UpperCasePipe],
+  imports: [FormsModule, UpperCasePipe],
   templateUrl: './maquina-detalle.html',
   styleUrl: './maquina-detalle.css',
 })
@@ -19,10 +19,10 @@ export class MaquinaDetalle {
     private route: ActivatedRoute,
     private gestionarMaquinas: GestionarMaquinas,
     private location: Location
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe( params => this.getMaquina());
+    this.route.params.subscribe(params => this.getMaquina());
   }
 
   getMaquina(): void {
@@ -34,6 +34,13 @@ export class MaquinaDetalle {
   goBack(): void {
     this.location.back();
   }
-  
+
+  save(): void {
+    if (this.maquina) {
+      this.gestionarMaquinas.actualizarMaquina(this.maquina)
+        .subscribe(() => this.goBack());
+    }
+  }
+
   @Input() maquina?: Maquina;
 }

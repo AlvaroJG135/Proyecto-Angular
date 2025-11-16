@@ -35,6 +35,12 @@ export class MonitorDetalle {
     this.location.back();
   }
 
+  save(): void {
+    if (this.monitor) {
+      this.gestionarMonitores.actualizarMonitor(this.monitor)
+        .subscribe(() => this.goBack());
+    }
+  }
 
   @Input() monitor?: Monitor;
 }

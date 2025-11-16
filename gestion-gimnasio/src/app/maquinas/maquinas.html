@@ -3,10 +3,21 @@
     @for (maquina of maquinas; track maquina.id){
     <li (click)="onSelect(maquina)">
         <a routerLink="/detalle/{{maquina.id}}">
-        <span class="badge">{{maquina.id}}</span> {{maquina.modelo}}
+            <span class="badge">{{maquina.id}}</span> {{maquina.modelo}}
         </a>
+        <button class="delete" title="Borrar maquina" (click)="delete(maquina)">x</button>
     </li>
     }
 </ul>
+<div>
+    <label>Modelo de la maquina:
+        <input #maquinaModelo />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(maquinaModelo.value); maquinaModelo.value=''">
+        add
+    </button>
+</div>
+
 
 <app-maquina-detalle [maquina]="selectedMaquina"></app-maquina-detalle>
