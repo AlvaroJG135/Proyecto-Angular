@@ -1,0 +1,10 @@
+<h3>Top Maquinas</h3>
+<div class="grid grid-pad">
+    @for(maquina of maquinas;track maquina.id){
+    <a class="col-1-4" routerLink="/detalle/{{maquina.id}}">
+        <div class="module maquina">
+            <h4>{{maquina.modelo}}</h4>
+        </div>
+    </a>
+    }
+</div>

@@ -1,0 +1,11 @@
+@if(maquina){
+    <div>
+        <h2>{{ maquina.modelo | uppercase }} Detalles</h2>
+        <div><span>id: </span>{{maquina.id}}</div>
+        <div>
+            <label for="maquina-modelo">Modelo:</label>
+                <input id="maquina-modelo"[(ngModel)]="maquina.modelo" placeholder="modelo"/>
+        </div>
+        <button (click)="goBack()">Volver</button>
+    </div>
+}

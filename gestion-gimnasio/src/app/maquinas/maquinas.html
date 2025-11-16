@@ -1,0 +1,12 @@
+<h2>Mis Maquinas</h2>
+<ul class="maquinas">
+    @for (maquina of maquinas; track maquina.id){
+    <li (click)="onSelect(maquina)">
+        <a routerLink="/detalle/{{maquina.id}}">
+        <span class="badge">{{maquina.id}}</span> {{maquina.modelo}}
+        </a>
+    </li>
+    }
+</ul>
+
+<app-maquina-detalle [maquina]="selectedMaquina"></app-maquina-detalle>

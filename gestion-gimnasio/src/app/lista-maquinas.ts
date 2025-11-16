@@ -1,0 +1,84 @@
+import { Maquina } from './maquina';
+
+export const LISTAMAQUINAS: Maquina[] = [
+    {
+        "id": 1,
+        "modelo": "Leg Press 45°",
+        "marca": "Technogym",
+        "grupoMuscular": "Piernas",
+        "resistencia": "Placas",
+        "precio": 3200
+    },
+    {
+        "id": 2,
+        "modelo": "Chest Press",
+        "marca": "Life Fitness",
+        "grupoMuscular": "Pectorales",
+        "resistencia": "Placas",
+        "precio": 2800
+    },
+    {
+        "id": 3,
+        "modelo": "Lat Pulldown",
+        "marca": "Matrix",
+        "grupoMuscular": "Espalda",
+        "resistencia": "Placas",
+        "precio": 2500
+    },
+    {
+        "id": 4,
+        "modelo": "Shoulder Press",
+        "marca": "Precor",
+        "grupoMuscular": "Hombros",
+        "resistencia": "Placas",
+        "precio": 2700
+    },
+    {
+        "id": 5,
+        "modelo": "Seated Row",
+        "marca": "Hammer Strength",
+        "grupoMuscular": "Espalda",
+        "resistencia": "Placas",
+        "precio": 2600
+    },
+    {
+        "id": 6,
+        "modelo": "Biceps Curl",
+        "marca": "Technogym",
+        "grupoMuscular": "Bíceps",
+        "resistencia": "Placas",
+        "precio": 2100
+    },
+    {
+        "id": 7,
+        "modelo": "Triceps Extension",
+        "marca": "Matrix",
+        "grupoMuscular": "Tríceps",
+        "resistencia": "Placas",
+        "precio": 2200
+    },
+    {
+        "id": 8,
+        "modelo": "Hack Squat",
+        "marca": "Life Fitness",
+        "grupoMuscular": "Piernas",
+        "resistencia": "Discos",
+        "precio": 3500
+    },
+    {
+        "id": 9,
+        "modelo": "Incline Chest Press",
+        "marca": "Hammer Strength",
+        "grupoMuscular": "Pectorales",
+        "resistencia": "Discos",
+        "precio": 3300
+    },
+    {
+        "id": 10,
+        "modelo": "Glute Machine",
+        "marca": "Precor",
+        "grupoMuscular": "Glúteos",
+        "resistencia": "Placas",
+        "precio": 2400
+    }
+]

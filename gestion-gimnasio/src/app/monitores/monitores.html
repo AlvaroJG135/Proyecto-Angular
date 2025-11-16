@@ -1,0 +1,13 @@
+<h2>Monitores</h2>
+<ul class="monitores">
+    @for (monitor of monitores; track monitor.id){
+    <li (click)="onSelect(monitor)">
+        <a routerLink="/detalle/{{monitor.id}}">
+        <span class="badge">{{monitor.id}}</span> {{monitor.nombre}}
+        </a>
+    </li>
+    }
+</ul>
+
+<app-monitor-detalle [monitor]="selectedMonitor"></app-monitor-detalle>
+
