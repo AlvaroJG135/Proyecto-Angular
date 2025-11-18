@@ -13,7 +13,7 @@ import { Monitor } from '../monitor';
 export class GestionarMonitores {
 
   private serviceUrl = '/monitores.json';
-  private apiRestUrl = 'http://localhost:2525/monitores';  // en producción /heroes
+  private apiRestUrl = 'http://localhost:/monitores';  // en producción /heroes
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

@@ -13,7 +13,7 @@ import { Maquina } from '../maquina';
 export class GestionarMaquinas {
 
   private serviceUrl = '/maquinas.json';
-  private apiRestUrl = 'http://localhost:2525/maquinas';  // en producción /heroes
+  private apiRestUrl = 'http://localhost:4000/maquinas';  // en producción /heroes
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
