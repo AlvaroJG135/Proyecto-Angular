@@ -52,3 +52,12 @@
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
 }
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}

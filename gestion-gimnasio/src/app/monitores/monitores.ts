@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Monitor } from '../monitor';
 import { FormsModule } from '@angular/forms';
 import { MonitorDetalle } from "../monitor-detalle/monitor-detalle";
 import { GestionarMonitores } from '../servicios/gestionar-monitores';
 import { RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-monitores',
+  selector: 'app-monitores,card-overview-example',
   standalone: true,
-  imports: [FormsModule, MonitorDetalle, RouterLink],
+  imports: [FormsModule, MonitorDetalle, RouterLink, MatCardModule, MatButtonModule],
   templateUrl: './monitores.html',
-  styleUrls: ['./monitores.css']
+  styleUrls: ['./monitores.css'],
 })
 export class Monitores {
 
@@ -49,3 +51,4 @@ export class Monitores {
 
 }
 
+export class CardOverviewExample {}
