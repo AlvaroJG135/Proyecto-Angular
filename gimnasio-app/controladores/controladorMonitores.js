@@ -5,7 +5,7 @@ async function getMonitores(req, res) {
     const monitores = await Monitor.find();
     res.status(200).json(monitores);
   } catch (err) {
-console.error("Error en getMonitores:", err.message);
+    console.error("Error en getMonitores:", err.message);
 
     res.status(500).json({"error":"Error al obtener los monitores"});
   }

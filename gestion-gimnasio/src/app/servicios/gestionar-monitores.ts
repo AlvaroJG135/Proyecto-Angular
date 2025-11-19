@@ -12,15 +12,15 @@ import { Monitor } from '../monitor';
 
 export class GestionarMonitores {
 
-  private serviceUrl = '/monitores.json';
-  private apiRestUrl = 'http://localhost:/monitores';  // en producción /heroes
+  //private serviceUrl = '/monitores.json';
+  private serviceUrl = 'http://localhost:4000/monitores';  // en producción /heroes
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   constructor(private http: HttpClient) { }
 
   getMonitores(): Observable<Monitor[]> {
-    return this.http.get<Monitor[]>(this.apiRestUrl).pipe(
+    return this.http.get<Monitor[]>(this.serviceUrl).pipe(
       tap(_ => console.log('fetched monitor')),
       catchError(this.handleError<Monitor[]>('getMonitores', []))
     );
@@ -28,7 +28,7 @@ export class GestionarMonitores {
 
   getMonitor(id: number): Observable<Monitor | undefined> {
     //const monitor = LISTAMONITORES.find(monitor => monitor.id === id);
-    return this.http.get<Monitor>(this.apiRestUrl + '/' + id).pipe(
+    return this.http.get<Monitor>(this.serviceUrl + '/' + id).pipe(
       tap(_ => console.log('fetched monitor')),
       catchError(this.handleError<Monitor>('getMonitor'))
     );
@@ -44,21 +44,21 @@ export class GestionarMonitores {
   }
 
   actualizarMonitor(monitor: Monitor): Observable<any> {
-    return this.http.put(this.apiRestUrl, monitor, this.httpOptions).pipe(
+    return this.http.put(this.serviceUrl, monitor, this.httpOptions).pipe(
       tap(_ => console.log(`Monitor actualizado id=${monitor.id}`)),
       catchError(this.handleError<any>('actualizarMonitor'))
     );
   }
 
   addMonitor(monitor: Monitor): Observable<Monitor> {
-    return this.http.post<Monitor>(this.apiRestUrl, monitor, this.httpOptions).pipe(
+    return this.http.post<Monitor>(this.serviceUrl, monitor, this.httpOptions).pipe(
       tap((nuevoMonitor: Monitor) => console.log(`Monitor añadido w/ id=${nuevoMonitor.id}`)),
       catchError(this.handleError<Monitor>('addMonitor'))
     );
   }
   deleteMonitor(monitor: Monitor | number): Observable<Monitor> {
     const id = typeof monitor === 'number' ? monitor : monitor.id;
-    const url = `${this.apiRestUrl}/${id}`;
+    const url = `${this.serviceUrl}/${id}`;
 
     return this.http.delete<Monitor>(url, this.httpOptions).pipe(
       tap(_ => console.log(`Monitor borrado id=${id}`)),

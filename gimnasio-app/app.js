@@ -15,11 +15,11 @@ app.use(cors({
 }))
 
 // Conexión a MongoDB
-mongoose.connect('mongodb://localhost:27017/2daw')
+mongoose.connect('mongodb://root:example@localhost:27017/2daw?authSource=admin')
   .then(() => console.log('Conectado a MongoDB'))
   .catch(err => console.error('Error al conectar MongoDB', err));
 
-app.use('/monitores', rutasMonitores);
+app.use('/Monitores', rutasMonitores);
 app.use('/maquinas', rutasMaquinas);
 
 app.use((req, res) => {

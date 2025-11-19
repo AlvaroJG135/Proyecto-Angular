@@ -5,7 +5,7 @@ async function getMaquinas(req, res) {
     const maquinas = await Maquina.find();
     res.status(200).json(maquinas);
   } catch (err) {
-console.error("Error en getMaquinas:", err.message);
+    console.error("Error en getMaquinas:", err.message);
 
     res.status(500).json({"error":"Error al obtener las maquinas"});
   }
