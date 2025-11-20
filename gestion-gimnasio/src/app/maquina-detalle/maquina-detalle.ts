@@ -22,11 +22,22 @@ export class MaquinaDetalle {
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => this.getMaquina());
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      // Solo carga si hay un ID en la ruta
+      if (id) {
+        this.getMaquina();
+      }
+    });
   }
 
   getMaquina(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
+    // Valida que el ID sea un número válido antes de hacer la request
+    if (!id || isNaN(id)) {
+      console.warn('ID inválido:', id);
+      return;
+    }
     this.gestionarMaquinas.getMaquina(id)
       .subscribe(maquina => this.maquina = maquina);
   }

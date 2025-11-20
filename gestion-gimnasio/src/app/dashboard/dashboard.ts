@@ -6,10 +6,10 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   imports: [RouterLink],
-  templateUrl: './dashboard-maquina.html',
-  styleUrls: [ './dashboard-maquina.css' ]
+  templateUrl: './dashboard.html',
+  styleUrls: [ './dashboard.css' ]
 })
-export class DashboardMaquina {
+export class Dashboard {
   maquinas: Maquina[] = [];
 
   constructor(private gestionarMaquinasService: GestionarMaquinas) { }
