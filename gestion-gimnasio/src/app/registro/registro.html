@@ -1,0 +1,53 @@
+<div class="form-container">
+  <h2>Registro de usuario</h2>
+
+  <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+    <!-- Usuario -->
+    <div class="form-group">
+      <label>Nombre de usuario</label>
+      <input type="text" formControlName="username" />
+      @if(f["username"].touched && f["username"].invalid){
+      <div class="error">
+        @if(f["username"].errors?.['required']){
+        <small>El nombre es obligatorio.</small>
+        } @if(f["username"].errors?.['minlength']){
+        <small>Debe tener al menos 5 caracteres.</small>
+        }
+      </div>
+      }
+    </div>
+
+    <!-- Contraseña -->
+    <div class="form-group">
+      <label>Contraseña</label>
+      <input type="password" formControlName="password" />
+      @if(f["password"].touched && f["password"].invalid){
+      <div class="error">
+        @if(f["password"].errors?.['required']){
+        <small>La contraseña es obligatoria.</small>
+        } @if(f["password"].errors?.['pattern']){
+        <small>Debe tener mayúsculas, minúsculas, número y carácter especial.</small>
+        }
+      </div>
+      }
+    </div>
+
+    <!-- Correo -->
+    <div class="form-group">
+      <label>Correo electrónico</label>
+      <input type="email" formControlName="email" />
+      @if(f["email"].touched && f["email"].invalid){
+      <div class="error">
+        @if(f["email"].errors?.['required']){
+        <small>El correo es obligatorio.</small>
+        }
+        @if(f["email"].errors?.['email']){
+        <small>Debe ser un correo válido.</small>
+        }
+      </div>
+    }
+    </div>
+
+    <button type="submit" [disabled]="registroForm.invalid">Registrar</button>
+  </form>
+</div>
