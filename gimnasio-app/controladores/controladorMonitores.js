@@ -25,13 +25,14 @@ async function getMonitor(req, res) {
 
 async function crearMonitor(req, res) {
   try {
+    console.log('Datos recibidos en crearMonitor:', req.body);
     const newMonitor = new Monitor(req.body);
     await newMonitor.save();
     res.status(201).json(newMonitor);
   } catch (err) {
-    console.error("Error en crearMonitor:", err.message);
-    res.status(400).json({"status":"Error al crear el monitor"});
-
+    console.error("Error en crearMonitor:", err);
+    res.status(400).json({"status":"Error al crear el monitor", "error": err.message});
+  }
   }
 }
 

@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const maquinaGimnasio = new mongoose.Schema({
-  id: { type: String, required: true },
   numSerie: String,
   modelo: String,
   marca: String,

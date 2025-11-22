@@ -26,13 +26,11 @@ export class GestionarMonitores {
     );
   }
 
-  getMonitor(id: number): Observable<Monitor | undefined> {
-    //const monitor = LISTAMONITORES.find(monitor => monitor.id === id);
-    return this.http.get<Monitor>(this.serviceUrl + '/' + id).pipe(
+  getMonitor(_id: string): Observable<Monitor | undefined> {
+    return this.http.get<Monitor>(this.serviceUrl + '/' + _id).pipe(
       tap(_ => console.log('fetched monitor')),
       catchError(this.handleError<Monitor>('getMonitor'))
     );
-
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

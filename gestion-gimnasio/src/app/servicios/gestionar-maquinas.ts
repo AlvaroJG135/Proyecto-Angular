@@ -52,7 +52,7 @@ export class GestionarMaquinas {
 
   addMaquina(maquina: Maquina): Observable<Maquina> {
     return this.http.post<Maquina>(this.apiRestUrl, maquina, this.httpOptions).pipe(
-      tap((nuevaMaquina: Maquina) => console.log(`Maquina añadida w/ id=${nuevaMaquina.id}`)),
+      tap((nuevaMaquina: Maquina) => console.log(`Maquina añadida w/ _id=${nuevaMaquina._id}`)),
       catchError(this.handleError<Maquina>('addHeroe'))
     );
   }

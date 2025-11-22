@@ -58,7 +58,24 @@ tr.mat-row:hover {
     cursor: pointer;
 }
 
-/* Botones de acciones */
+
+.btn-add {
+    display: block;
+    margin: 0 auto;
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #333333;
+    color: #ffffff;
+    border: 2px solid #51ff00;
+}
+
+
+
+
 .btn-mas,
 .btn-edit,
 .btn-delete {
@@ -74,6 +91,7 @@ tr.mat-row:hover {
     border: 2px solid #51ff00;
 }
 
+.btn-add:hover,
 .btn-mas:hover,
 .btn-edit:hover,
 .btn-delete:hover {
@@ -83,6 +101,8 @@ tr.mat-row:hover {
     box-shadow: 0 4px 8px rgba(43, 255, 0, 0.3);
 }
 
+.btn-add:active,
+.btn-mas:active,
 .btn-edit:active,
 .btn-delete:active {
     transform: translateY(0);

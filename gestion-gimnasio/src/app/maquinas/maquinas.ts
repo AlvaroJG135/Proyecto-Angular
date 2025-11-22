@@ -23,14 +23,16 @@ export class Maquinas implements AfterViewInit {
 
     maquinas: Maquina[] = [];
     selectedMaquina?: Maquina;
+    mostrarFormulario: boolean = false;
+    nuevaMaquina: Partial<Maquina> = {};
 
-    displayedColumns: string[] = ['id', 'modelo', 'marca', 'grupoMuscular', 'resistencia', 'precio', 'acciones'];
+    displayedColumns: string[] = ['_id', 'modelo', 'marca', 'grupoMuscular', 'resistencia', 'precio', 'acciones'];
     dataSource: MatTableDataSource<Maquina> = new MatTableDataSource<Maquina>([]);
 
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
 
-    constructor(private gestionarMaquinas: GestionarMaquinas, private router: Router) {}
+    constructor(private gestionarMaquinas: GestionarMaquinas, private router: Router) { }
 
     ngAfterViewInit() {
         this.dataSource.paginator = this.paginator;
@@ -57,6 +59,16 @@ export class Maquinas implements AfterViewInit {
 
     ngOnInit() {
         this.getMaquinas();
+    }
+
+    abrirFormulario(): void {
+        this.mostrarFormulario = true;
+        this.nuevaMaquina = {};
+    }
+
+    cancelarFormulario(): void {
+        this.mostrarFormulario = false;
+        this.nuevaMaquina = {};
     }
 
     add(modelo: string): void {

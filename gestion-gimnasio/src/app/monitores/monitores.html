@@ -1,29 +1,44 @@
-<h2>Monitores</h2>
-<ul class="monitores">
-  @for (monitor of monitores; track monitor.id){
-  <mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>{{ monitor.nombre }}</mat-card-title>
-      <mat-card-subtitle>{{ monitor.id }}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="../../assets/imagenes/icono.png"/>
-    <mat-card-content>
-      <p><b>Fecha de nacimiento: </b>{{monitor.fechaNacimiento}}</p>
-      <p><b>Turno: </b>{{monitor.turno}}</p>
-      <p><b>Salario: </b>{{monitor.salario}}</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button matButton (click)="(monitor)">✎ Editar</button>
-      <button matButton (click)="delete(monitor)">✕ Eliminar</button>
-    </mat-card-actions>
-  </mat-card>
-  }
-</ul>
-<div>
-  <label
-    >Nombre del Monitor:
-    <input #monitorNombre />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(monitorNombre.value); monitorNombre.value = ''">add</button>
+<div class="pagina-normal" [class.blur]="mostrarFormulario">
+  <h2>Monitores</h2>
+  <button class="btn-add" (click)="abrirFormulario()">Añadir monitor</button>
+  <ul class="monitores">
+    @for (monitor of monitores; track trackByMonitorId($index, monitor)){
+    <mat-card class="example-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>{{ monitor.nombre }}</mat-card-title>
+        <mat-card-subtitle>{{ monitor._id }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="../../assets/imagenes/icono.png" />
+      <mat-card-content>
+        <p><b>Fecha de nacimiento: </b>{{monitor.fechaNacimiento}}</p>
+        <p><b>Turno: </b>{{monitor.turno}}</p>
+        <p><b>Salario: </b>{{monitor.salario}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button matButton (click)="(monitor)">✎ Editar</button>
+        <button matButton (click)="delete(monitor)">✕ Eliminar</button>
+      </mat-card-actions>
+    </mat-card>
+    }
+  </ul>
 </div>
+
+@if(mostrarFormulario){
+<div class="formulario">
+  <h3>Nuevo Monitor</h3>
+  <form>
+    <label>Nombre:</label>
+    <input [(ngModel)]="nuevoMonitor.nombre" name="nombre" required />
+    <label>Fecha de nacimiento:</label>
+    <input [(ngModel)]="nuevoMonitor.fechaNacimiento" name="fechaNacimiento" type="date" />
+    <label>Salario:</label>
+    <input [(ngModel)]="nuevoMonitor.salario" name="salario" type="number" min="0" />
+    <label>Turno:</label>
+    <input [(ngModel)]="nuevoMonitor.turno" name="turno" />
+    <div class="modal-actions">
+      <button type="button" class="añadir" (click)="guardarMonitor()">Añadir</button>
+      <button type="button" class="cacelar" (click)="cancelarFormulario()">Cancelar</button>
+    </div>
+  </form>
+</div>
+}

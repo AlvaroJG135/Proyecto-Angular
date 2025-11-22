@@ -2,7 +2,7 @@ import { Maquina } from './maquina';
 
 export const LISTAMAQUINAS: Maquina[] = [
     {
-        "id": 1,
+        "_id": "1",
         "modelo": "Leg Press 45°",
         "marca": "Technogym",
         "grupoMuscular": "Piernas",
@@ -10,7 +10,7 @@ export const LISTAMAQUINAS: Maquina[] = [
         "precio": 3200
     },
     {
-        "id": 2,
+        "_id": "2",
         "modelo": "Chest Press",
         "marca": "Life Fitness",
         "grupoMuscular": "Pectorales",
@@ -18,7 +18,7 @@ export const LISTAMAQUINAS: Maquina[] = [
         "precio": 2800
     },
     {
-        "id": 3,
+        "_id": "3",
         "modelo": "Lat Pulldown",
         "marca": "Matrix",
         "grupoMuscular": "Espalda",
@@ -26,7 +26,7 @@ export const LISTAMAQUINAS: Maquina[] = [
         "precio": 2500
     },
     {
-        "id": 4,
+        "_id": "4",
         "modelo": "Shoulder Press",
         "marca": "Precor",
         "grupoMuscular": "Hombros",
@@ -34,7 +34,7 @@ export const LISTAMAQUINAS: Maquina[] = [
         "precio": 2700
     },
     {
-        "id": 5,
+        "_id": "5",
         "modelo": "Seated Row",
         "marca": "Hammer Strength",
         "grupoMuscular": "Espalda",
@@ -42,7 +42,7 @@ export const LISTAMAQUINAS: Maquina[] = [
         "precio": 2600
     },
     {
-        "id": 6,
+        "_id": "6",
         "modelo": "Biceps Curl",
         "marca": "Technogym",
         "grupoMuscular": "Bíceps",
@@ -50,7 +50,7 @@ export const LISTAMAQUINAS: Maquina[] = [
         "precio": 2100
     },
     {
-        "id": 7,
+        "_id": "7",
         "modelo": "Triceps Extension",
         "marca": "Matrix",
         "grupoMuscular": "Tríceps",
@@ -58,7 +58,7 @@ export const LISTAMAQUINAS: Maquina[] = [
         "precio": 2200
     },
     {
-        "id": 8,
+        "_id": "8",
         "modelo": "Hack Squat",
         "marca": "Life Fitness",
         "grupoMuscular": "Piernas",
@@ -66,7 +66,7 @@ export const LISTAMAQUINAS: Maquina[] = [
         "precio": 3500
     },
     {
-        "id": 9,
+        "_id": "9",
         "modelo": "Incline Chest Press",
         "marca": "Hammer Strength",
         "grupoMuscular": "Pectorales",
@@ -74,7 +74,7 @@ export const LISTAMAQUINAS: Maquina[] = [
         "precio": 3300
     },
     {
-        "id": 10,
+        "_id": "10",
         "modelo": "Glute Machine",
         "marca": "Precor",
         "grupoMuscular": "Glúteos",

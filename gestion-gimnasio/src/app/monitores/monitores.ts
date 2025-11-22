@@ -14,16 +14,19 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./monitores.css'],
 })
 export class Monitores {
-
-  monitores: Monitor[];
-  selectedMonitor?: Monitor;
-
-  constructor(private gestionarMonitores: GestionarMonitores) {
-    this.monitores = [];
+  trackByMonitorId(index: number, monitor: Monitor): string {
+    return monitor._id ?? index.toString();
   }
 
+  monitores: Monitor[] = [];
+  selectedMonitor?: Monitor;
+  mostrarFormulario: boolean = false;
+  nuevoMonitor: Partial<Monitor> = {};
+
+  constructor(private gestionarMonitores: GestionarMonitores) {}
+
   onSelect(monitor: Monitor): void {
-    this.selectedMonitor = monitor
+    this.selectedMonitor = monitor;
   }
 
   getMonitores(): void {
@@ -35,17 +38,42 @@ export class Monitores {
     this.getMonitores();
   }
 
-  add(nombre: string): void {
-    nombre = nombre.trim();
-    if (!nombre) { return; }
-    this.gestionarMonitores.addMonitor({ nombre } as Monitor)
-      .subscribe(monitor => {
-        this.monitores.push(monitor);
+  abrirFormulario(): void {
+    this.mostrarFormulario = true;
+    this.nuevoMonitor = {};
+  }
+
+  cancelarFormulario(): void {
+    this.mostrarFormulario = false;
+    this.nuevoMonitor = {};
+  }
+
+  guardarMonitor(): void {
+    const monitor = {
+      nombre: this.nuevoMonitor.nombre?.trim() || '',
+      fechaNacimiento: this.nuevoMonitor.fechaNacimiento || '',
+      salario: this.nuevoMonitor.salario || 0,
+      turno: this.nuevoMonitor.turno || ''
+    } as Monitor;
+    if (!monitor.nombre) { return; }
+    this.gestionarMonitores.addMonitor(monitor)
+      .subscribe({
+        next: m => {
+          if (m && m._id) {
+            this.monitores.push(m);
+          }
+          this.mostrarFormulario = false;
+          this.nuevoMonitor = {};
+        },
+        error: err => {
+          console.error('Error al añadir monitor:', err);
+        }
       });
   }
+
   delete(monitor: Monitor): void {
     this.monitores = this.monitores.filter(h => h !== monitor);
-      this.gestionarMonitores.deleteMonitor(monitor._id!).subscribe();
+    this.gestionarMonitores.deleteMonitor(monitor._id!).subscribe();
   }
 
 }
