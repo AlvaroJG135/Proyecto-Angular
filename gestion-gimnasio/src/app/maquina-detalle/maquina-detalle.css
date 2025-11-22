@@ -1,1 +1,47 @@
+.maquina-detalle {
+    background-color: #333333;
+    border: 2px solid #51ff00;
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
 
+.maquina-detalle h2 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #51ff00;
+    margin-bottom: 1.5rem;
+}
+
+.maquina-detalle b {
+    color: #51ff00;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.maquina-detalle button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: #333333;
+    color: #ffffff;
+    border: 2px solid #51ff00;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.maquina-detalle button:hover {
+    background-color: #51ff00;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(43, 255, 0, 0.3);
+}

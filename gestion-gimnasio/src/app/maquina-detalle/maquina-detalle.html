@@ -1,12 +1,26 @@
-@if(maquina){
-    <div>
-        <h2>{{ maquina.modelo | uppercase }} Detalles</h2>
-        <div><span>id: </span>{{maquina.id}}</div>
-        <div>
-            <label for="maquina-modelo">Modelo:</label>
-                <input id="maquina-modelo"[(ngModel)]="maquina.modelo" placeholder="modelo"/>
-        </div>
-        <button (click)="save()">save</button>
-        <button (click)="goBack()">Volver</button>
+@if (maquina) {
+<div class="maquina-detalle">
+    <h2>{{ maquina.modelo | uppercase }} - Detalles</h2>
+
+    <div class="detalle-row">
+        <b>ID: </b> <span>{{ maquina.id }}</span>
     </div>
+    <div class="detalle-row">
+        <b>Modelo: </b> <span>{{ maquina.modelo }}</span>
+    </div>
+    <div class="detalle-row">
+        <b>Marca: </b> <span>{{ maquina.marca }}</span>
+    </div>
+    <div class="detalle-row">
+        <b>Grupo Muscular: </b> <span>{{ maquina.grupoMuscular }}</span>
+    </div>
+    <div class="detalle-row">
+        <b>Resistencia: </b> <span>{{ maquina.resistencia }}</span>
+    </div>
+    <div class="detalle-row">
+        <b>Precio: </b> <span>{{ maquina.precio }} €</span>
+    </div>
+
+    <button type="button" (click)="goBack()">Volver</button>
+</div>
 }

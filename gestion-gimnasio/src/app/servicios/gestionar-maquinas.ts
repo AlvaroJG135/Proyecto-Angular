@@ -27,9 +27,9 @@ export class GestionarMaquinas {
     );
   }
 
-  getMaquina(id: number): Observable<Maquina | undefined> {
+  getMaquina(_id: string): Observable<Maquina | undefined> {
     //const maquina = LISTAMAQUINAS.find(maquina => maquina.id === id);
-    return this.http.get<Maquina>(this.apiRestUrl + '/' + id).pipe(
+    return this.http.get<Maquina>(this.apiRestUrl + '/' + _id).pipe(
       tap(_ => console.log('fetched maquina')),
       catchError(this.handleError<Maquina>('getMaquina'))
     );
@@ -44,8 +44,8 @@ export class GestionarMaquinas {
   }
 
   actualizarMaquina(maquina: Maquina): Observable<any> {
-    return this.http.put(this.apiRestUrl, maquina, this.httpOptions).pipe(
-      tap(_ => console.log(`Maquina actualizada id=${maquina.id}`)),
+    return this.http.put(this.apiRestUrl + '/' + maquina._id, maquina, this.httpOptions).pipe(
+      tap(_ => console.log(`Maquina actualizada _id=${maquina._id}`)),
       catchError(this.handleError<any>('actualizarMaquina'))
     );
   }
@@ -57,12 +57,12 @@ export class GestionarMaquinas {
     );
   }
 
-  deleteMaquina(maquina: Maquina | number): Observable<Maquina> {
-    const id = typeof maquina === 'number' ? maquina : maquina.id;
-    const url = `${this.apiRestUrl}/${id}`;
+  deleteMaquina(maquina: Maquina | string): Observable<Maquina> {
+    const _id = typeof maquina === 'string' ? maquina : maquina._id;
+    const url = `${this.apiRestUrl}/${_id}`;
 
     return this.http.delete<Maquina>(url, this.httpOptions).pipe(
-      tap(_ => console.log(`Maquina borrada id=${id}`)),
+      tap(_ => console.log(`Maquina borrada id=${_id}`)),
       catchError(this.handleError<Maquina>('deleteMaquina'))
     );
   }

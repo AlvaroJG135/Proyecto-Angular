@@ -1,5 +1,6 @@
 export interface Maquina {
-    id: number,
+    _id?: string,
+    id?: number,
     modelo: string,
     marca: string,
     grupoMuscular: string,

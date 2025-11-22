@@ -6,15 +6,15 @@
       <mat-card-title>{{ monitor.nombre }}</mat-card-title>
       <mat-card-subtitle>{{ monitor.id }}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="../\assets/imagenes/icono.png"/>
+    <img mat-card-image src="../../assets/imagenes/icono.png"/>
     <mat-card-content>
       <p><b>Fecha de nacimiento: </b>{{monitor.fechaNacimiento}}</p>
       <p><b>Turno: </b>{{monitor.turno}}</p>
       <p><b>Salario: </b>{{monitor.salario}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button matButton>✎ Editar</button>
-      <button matButton>✕ Eliminar</button>
+      <button matButton (click)="(monitor)">✎ Editar</button>
+      <button matButton (click)="delete(monitor)">✕ Eliminar</button>
     </mat-card-actions>
   </mat-card>
   }
@@ -27,5 +27,3 @@
   <!-- (click) passes input value to add() and then clears the input -->
   <button (click)="add(monitorNombre.value); monitorNombre.value = ''">add</button>
 </div>
-
-<app-monitor-detalle [monitor]="selectedMonitor"></app-monitor-detalle>

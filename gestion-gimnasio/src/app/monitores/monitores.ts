@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Monitor } from '../monitor';
 import { FormsModule } from '@angular/forms';
-import { MonitorDetalle } from "../monitor-detalle/monitor-detalle";
 import { GestionarMonitores } from '../servicios/gestionar-monitores';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,7 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 @Component({
   selector: 'app-monitores,card-overview-example',
   standalone: true,
-  imports: [FormsModule, MonitorDetalle, RouterLink, MatCardModule, MatButtonModule],
+  imports: [FormsModule, RouterLink, MatCardModule, MatButtonModule],
   templateUrl: './monitores.html',
   styleUrls: ['./monitores.css'],
 })
@@ -46,7 +45,7 @@ export class Monitores {
   }
   delete(monitor: Monitor): void {
     this.monitores = this.monitores.filter(h => h !== monitor);
-    this.gestionarMonitores.deleteMonitor(monitor).subscribe();
+      this.gestionarMonitores.deleteMonitor(monitor._id!).subscribe();
   }
 
 }

@@ -13,7 +13,7 @@ import { Monitor } from '../monitor';
 export class GestionarMonitores {
 
   //private serviceUrl = '/monitores.json';
-  private serviceUrl = 'http://localhost:4000/monitores';  // en producción /heroes
+  private serviceUrl = 'http://localhost:4000/monitores';
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -44,24 +44,24 @@ export class GestionarMonitores {
   }
 
   actualizarMonitor(monitor: Monitor): Observable<any> {
-    return this.http.put(this.serviceUrl, monitor, this.httpOptions).pipe(
-      tap(_ => console.log(`Monitor actualizado id=${monitor.id}`)),
+    return this.http.put(this.serviceUrl + '/' + monitor._id, monitor, this.httpOptions).pipe(
+      tap(_ => console.log(`Monitor actualizado _id=${monitor._id}`)),
       catchError(this.handleError<any>('actualizarMonitor'))
     );
   }
 
   addMonitor(monitor: Monitor): Observable<Monitor> {
     return this.http.post<Monitor>(this.serviceUrl, monitor, this.httpOptions).pipe(
-      tap((nuevoMonitor: Monitor) => console.log(`Monitor añadido w/ id=${nuevoMonitor.id}`)),
+      tap((nuevoMonitor: Monitor) => console.log(`Monitor añadido w/ _id=${nuevoMonitor._id}`)),
       catchError(this.handleError<Monitor>('addMonitor'))
     );
   }
-  deleteMonitor(monitor: Monitor | number): Observable<Monitor> {
-    const id = typeof monitor === 'number' ? monitor : monitor.id;
-    const url = `${this.serviceUrl}/${id}`;
+  deleteMonitor(monitor: Monitor | string): Observable<Monitor> {
+    const _id = typeof monitor === 'string' ? monitor : monitor._id;
+    const url = `${this.serviceUrl}/${_id}`;
 
     return this.http.delete<Monitor>(url, this.httpOptions).pipe(
-      tap(_ => console.log(`Monitor borrado id=${id}`)),
+      tap(_ => console.log(`Monitor borrado _id=${_id}`)),
       catchError(this.handleError<Monitor>('deleteMonitor'))
     );
   }

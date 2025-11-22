@@ -59,6 +59,7 @@ tr.mat-row:hover {
 }
 
 /* Botones de acciones */
+.btn-mas,
 .btn-edit,
 .btn-delete {
     font-size: 1rem;
@@ -73,6 +74,7 @@ tr.mat-row:hover {
     border: 2px solid #51ff00;
 }
 
+.btn-mas:hover,
 .btn-edit:hover,
 .btn-delete:hover {
     background-color: #51ff00;

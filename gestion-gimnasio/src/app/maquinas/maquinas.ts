@@ -5,17 +5,16 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import { CurrencyPipe } from '@angular/common';
 import { Maquina } from '../maquina';
 import { MaquinaDetalle } from "../maquina-detalle/maquina-detalle";
+import { Router } from '@angular/router';
 import { GestionarMaquinas } from '../servicios/gestionar-maquinas';
 // RouterLink removed from imports because template may not use it here
 
 @Component({
     selector: 'app-maquinas',
     standalone: true,
-    imports: [
-        FormsModule, MaquinaDetalle, MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule],
+    imports: [FormsModule, MaquinaDetalle, MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule],
     templateUrl: './maquinas.html',
     styleUrls: ['./maquinas.css'],
     encapsulation: ViewEncapsulation.None
@@ -31,23 +30,26 @@ export class Maquinas implements AfterViewInit {
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
 
-    constructor(private gestionarMaquinas: GestionarMaquinas) {}
+    constructor(private gestionarMaquinas: GestionarMaquinas, private router: Router) {}
 
     ngAfterViewInit() {
-        // if data already loaded, assign paginator/sort; otherwise they'll be set when data arrives
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
     }
 
+
     onSelect(maquina: Maquina): void {
         this.selectedMaquina = maquina;
+    }
+
+    verDetalle(maquina: Maquina): void {
+        this.router.navigate(['/detalle', maquina._id]);
     }
 
     getMaquinas(): void {
         this.gestionarMaquinas.getMaquinas().subscribe(maquinas => {
             this.maquinas = maquinas;
             this.dataSource.data = maquinas;
-            // Re-assign paginator and sort in case they were not ready earlier
             if (this.paginator) { this.dataSource.paginator = this.paginator; }
             if (this.sort) { this.dataSource.sort = this.sort; }
         });
@@ -70,7 +72,7 @@ export class Maquinas implements AfterViewInit {
     delete(maquina: Maquina): void {
         this.maquinas = this.maquinas.filter(h => h !== maquina);
         this.dataSource.data = this.maquinas;
-        this.gestionarMaquinas.deleteMaquina(maquina).subscribe();
+        this.gestionarMaquinas.deleteMaquina(maquina._id!).subscribe();
     }
 
     applyFilter(event: Event) {
