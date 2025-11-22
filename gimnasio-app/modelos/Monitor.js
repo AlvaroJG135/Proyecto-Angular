@@ -5,7 +5,7 @@ const monitorGimnasio = new mongoose.Schema({
   nombre: String,
   fechaNacimiento: String,
   salario: Number, 
-  Turno: String
+  turno: String
 });
 
 module.exports = mongoose.model('Monitor', monitorGimnasio);

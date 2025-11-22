@@ -1,3 +1,10 @@
+h2 {
+    text-align: center;
+    font-size: 3rem;        
+    font-weight: bold;      
+    color: #333333;         
+    margin: 2rem 0;         
+}
 
 .selected {
     background-color: #CFD8DC !important;
@@ -53,11 +60,116 @@
     border-radius: 4px 0 0 4px;
 }
 
-.example-card {
-  max-width: 400px;
+.monitores {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    list-style-type: none;
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.example-card {
+    max-width: 400px;
+}
+
+.example-card img {
+    height: 200px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.example-card mat-card-content p {
+    font-size: 1.1rem;
+    margin: 0.8rem 0;
+}
+
+.example-card mat-card-content b {
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .monitores {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .monitores {
+        grid-template-columns: 1fr;
+    }
+}
+
+.example-card {
+    max-width: 400px;
+    background-color: #333333;
+    color: #ffffff;
+    border: 5px solid #51ff00;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.example-card mat-card-header {
+    background-color: #333333;
+    padding: 1rem;
+    border-radius: 8px 8px 0 0;
+}
+
+.example-card mat-card-title,
+.example-card mat-card-subtitle {
+    color: #51ff00;
+}
+
+.example-card img {
+    height: 200px;
+    width: 100%;
+    object-fit: contain;
+    background-color: #ffffff;
+    /* fondo blanco para la imagen */
+}
+
+.example-card mat-card-content p {
+    font-size: 1.1rem;
+    margin: 0.8rem 0;
+    color: #ffffff;
+    /* texto blanco en contenido */
+}
+
+.example-card mat-card-content b {
+    font-weight: 600;
+    color: #51ff00;
+    /* resaltar etiquetas en naranja */
+}
+
+.example-card mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.example-card mat-card-actions button {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.example-card mat-card-actions button {
+    background-color: #333333;
+    border: 2px solid #51ff00;
+    color: #ffffff;
+}
+
+.example-card mat-card-actions button:hover {
+    background-color: #51ff00;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(43, 255, 0, 0.3);
+}
+.example-card mat-card-actions button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(43, 255, 0, 0.3);
 }

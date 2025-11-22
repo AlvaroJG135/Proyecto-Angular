@@ -14,10 +14,16 @@
 }
 
 .logo {
-  color: #ff9800;
+  color: #ffffff;
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0;
+  cursor: pointer;   
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: #51ff00;
 }
 
 .nav-buttons {
@@ -31,7 +37,7 @@
 .nav-btn {
   background-color: #333333;
   color: #ffffff;
-  border: 2px solid #ff9800;
+  border: 2px solid #51ff00;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: 600;
@@ -43,15 +49,15 @@
 }
 
 .nav-btn:hover {
-  background-color: #ff9800;
+  background-color: #51ff00;
   color: #1a1a1a;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(43, 255, 0, 0.3);
 }
 
 .nav-btn:active {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(255, 152, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(43, 255, 0, 0.3);
 }
 
 @media (max-width: 768px) {

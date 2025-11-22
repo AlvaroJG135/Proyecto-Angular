@@ -1,33 +1,20 @@
 <h2>Monitores</h2>
 <ul class="monitores">
   @for (monitor of monitores; track monitor.id){
-  <!--<li (click)="onSelect(monitor)">
-        <a routerLink="/detalle/{{monitor.id}}">
-            <span class="badge">{{monitor.id}}</span> {{monitor.nombre}}
-        </a>
-        <button class="delete" title="Borrar monitor" (click)="delete(monitor)">x</button>
-    </li>-->
   <mat-card class="example-card" appearance="outlined">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{ monitor.nombre }}</mat-card-title>
       <mat-card-subtitle>{{ monitor.id }}</mat-card-subtitle>
     </mat-card-header>
-    <img
-      mat-card-image
-      src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
-      alt="Photo of a Shiba Inu"
-    />
+    <img mat-card-image src="../\assets/imagenes/icono.png"/>
     <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from
-        Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-        originally bred for hunting.
-      </p>
+      <p><b>Fecha de nacimiento: </b>{{monitor.fechaNacimiento}}</p>
+      <p><b>Turno: </b>{{monitor.turno}}</p>
+      <p><b>Salario: </b>{{monitor.salario}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button matButton>LIKE</button>
-      <button matButton>SHARE</button>
+      <button matButton>✎ Editar</button>
+      <button matButton>✕ Eliminar</button>
     </mat-card-actions>
   </mat-card>
   }

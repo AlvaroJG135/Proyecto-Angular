@@ -15,15 +15,7 @@ import { GestionarMaquinas } from '../servicios/gestionar-maquinas';
     selector: 'app-maquinas',
     standalone: true,
     imports: [
-        FormsModule,
-        MaquinaDetalle,
-        MatFormFieldModule,
-        MatInputModule,
-        MatTableModule,
-        MatSortModule,
-        MatPaginatorModule,
-        CurrencyPipe,
-    ],
+        FormsModule, MaquinaDetalle, MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule],
     templateUrl: './maquinas.html',
     styleUrls: ['./maquinas.css'],
     encapsulation: ViewEncapsulation.None
