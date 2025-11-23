@@ -1,6 +1,6 @@
 <div class="pagina-normal" [class.blur]="mostrarFormulario">
     <h2>Listado de maquinas</h2>
-    <button class="btn-add" title="Añadir maquina">Añadir maquina</button>
+    <button class="btn-add" title="Añadir maquina" (click)="abrirFormulario()">Añadir maquina</button>
 
     <mat-form-field>
         <mat-label>Filtrar por...</mat-label>
@@ -80,17 +80,18 @@
 <div class="formulario">
     <h3>Nuevo Monitor</h3>
     <form>
-        <label>Nombre:</label>
-        <input [(ngModel)]="nuevaMaquina.modelo" name="nombre" required />
-        <label>Fecha de nacimiento:</label>
-        <input [(ngModel)]="nuevaMaquina.marca" name="fechaNacimiento" type="date" />
-        <label>Salario:</label>
-        <input [(ngModel)]="nuevaMaquina.grupoMuscular" name="salario" type="number" min="0" />
-        <label>Turno:</label>
-        <input [(ngModel)]="nuevaMaquina.resistencia" name="turno" />
-        <input [(ngModel)]="nuevaMaquina.precio" name="turno" />
+        <label>Modelo: </label>
+        <input [(ngModel)]="nuevaMaquina.modelo" name="modelo" required />
+        <label>Marca: </label>
+        <input [(ngModel)]="nuevaMaquina.marca" name="marca" />
+        <label>Grupo muscular: </label>
+        <input [(ngModel)]="nuevaMaquina.grupoMuscular" name="grupoMuscular" />
+        <label>Resistencia: </label>
+        <input [(ngModel)]="nuevaMaquina.resistencia" name="resistencia"  />
+        <label>Precio: </label>
+        <input [(ngModel)]="nuevaMaquina.precio" name="precio" type="number" min="0"/>
         <div class="modal-actions">
-            <button type="button" class="añadir">Añadir</button>
+            <button type="button" class="añadir" (click)="guardarMaquina()">Añadir</button>
             <button type="button" class="cacelar" (click)="cancelarFormulario()">Cancelar</button>
         </div>
     </form>

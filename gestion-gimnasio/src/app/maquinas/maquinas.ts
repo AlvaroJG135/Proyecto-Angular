@@ -20,6 +20,28 @@ import { GestionarMaquinas } from '../servicios/gestionar-maquinas';
     encapsulation: ViewEncapsulation.None
 })
 export class Maquinas implements AfterViewInit {
+    guardarMaquina(): void {
+        const maquina = {
+            modelo: this.nuevaMaquina.modelo?.trim() || '',
+            marca: this.nuevaMaquina.marca || '',
+            grupoMuscular: this.nuevaMaquina.grupoMuscular || '',
+            resistencia: this.nuevaMaquina.resistencia || '',
+            precio: this.nuevaMaquina.precio || 0
+        } as Maquina;
+        if (!maquina.modelo) { return; }
+        this.gestionarMaquinas.addMaquina(maquina)
+            .subscribe(m => {
+                if (m && m._id) {
+                    this.maquinas.push(m);
+                    this.dataSource.data = this.maquinas;
+                }
+                this.mostrarFormulario = false;
+                this.nuevaMaquina = {};
+            },
+            err => {
+                console.error('Error al añadir máquina:', err);
+            });
+    }
 
     maquinas: Maquina[] = [];
     selectedMaquina?: Maquina;
