@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -14,12 +15,13 @@ import { GestionarMaquinas } from '../servicios/gestionar-maquinas';
 @Component({
     selector: 'app-maquinas',
     standalone: true,
-    imports: [FormsModule, MaquinaDetalle, MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule],
+    imports: [FormsModule, CommonModule, MaquinaDetalle, MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule],
     templateUrl: './maquinas.html',
     styleUrls: ['./maquinas.css'],
     encapsulation: ViewEncapsulation.None
 })
 export class Maquinas implements AfterViewInit {
+        modoEdicion: boolean = false;
     guardarMaquina(): void {
         const maquina = {
             modelo: this.nuevaMaquina.modelo?.trim() || '',
@@ -63,6 +65,9 @@ export class Maquinas implements AfterViewInit {
 
 
     onSelect(maquina: Maquina): void {
+        this.modoEdicion = true;
+        this.mostrarFormulario = true;
+        this.nuevaMaquina = { ...maquina };
         this.selectedMaquina = maquina;
     }
 
@@ -86,11 +91,40 @@ export class Maquinas implements AfterViewInit {
     abrirFormulario(): void {
         this.mostrarFormulario = true;
         this.nuevaMaquina = {};
+        this.modoEdicion = false;
+        this.selectedMaquina = undefined;
     }
 
     cancelarFormulario(): void {
         this.mostrarFormulario = false;
         this.nuevaMaquina = {};
+        this.selectedMaquina = undefined;
+        this.modoEdicion = false;
+    }
+    modificarMaquina(): void {
+        if (!this.selectedMaquina || !this.nuevaMaquina.modelo) { return; }
+        const maquinaEditada = {
+            ...this.selectedMaquina,
+            modelo: this.nuevaMaquina.modelo?.trim() || '',
+            marca: this.nuevaMaquina.marca || '',
+            grupoMuscular: this.nuevaMaquina.grupoMuscular || '',
+            resistencia: this.nuevaMaquina.resistencia || '',
+            precio: this.nuevaMaquina.precio || 0
+        } as Maquina;
+        this.gestionarMaquinas.actualizarMaquina(maquinaEditada)
+            .subscribe({
+                next: m => {
+                    if (m && m._id) {
+                        const idx = this.maquinas.findIndex(ma => ma._id === m._id);
+                        if (idx > -1) this.maquinas[idx] = m;
+                        this.dataSource.data = this.maquinas;
+                    }
+                    this.cancelarFormulario();
+                },
+                error: err => {
+                    console.error('Error al modificar máquina:', err);
+                }
+            });
     }
 
     add(modelo: string): void {

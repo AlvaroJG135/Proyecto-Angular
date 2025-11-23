@@ -78,7 +78,7 @@
 
 @if(mostrarFormulario){
 <div class="formulario">
-    <h3>Nuevo Monitor</h3>
+    <h3>{{ modoEdicion ? 'Editar Máquina' : 'Nueva Máquina' }}</h3>
     <form>
         <label>Modelo: </label>
         <input [(ngModel)]="nuevaMaquina.modelo" name="modelo" required />
@@ -91,8 +91,13 @@
         <label>Precio: </label>
         <input [(ngModel)]="nuevaMaquina.precio" name="precio" type="number" min="0"/>
         <div class="modal-actions">
-            <button type="button" class="añadir" (click)="guardarMaquina()">Añadir</button>
             <button type="button" class="cacelar" (click)="cancelarFormulario()">Cancelar</button>
+            @if (!modoEdicion) {
+                <button type="button" class="añadir" (click)="guardarMaquina()">Añadir</button>
+            }
+            @if (modoEdicion) {
+                <button type="button" class="añadir" (click)="modificarMaquina()">Modificar</button>
+            }
         </div>
     </form>
 </div>

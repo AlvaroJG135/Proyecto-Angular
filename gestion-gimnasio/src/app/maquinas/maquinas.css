@@ -111,7 +111,7 @@ tr.mat-row:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #ffffff;
+    background-color: #333333;
     color: #333333;
     border: 3px solid #51ff00;
     border-radius: 10px;
@@ -132,7 +132,7 @@ tr.mat-row:hover {
     display: block;
     margin-top: 1rem;
     font-weight: bold;
-    color: #333333;
+    color: #51ff00;
 }
 
 .formulario input {
@@ -169,6 +169,7 @@ tr.mat-row:hover {
 .modal-actions .añadir:hover {
     background-color: #333333;
     color: #ffffff;
+    border: 2px solid #51ff00;
 }
 
 .modal-actions .cacelar {
