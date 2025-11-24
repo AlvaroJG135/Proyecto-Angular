@@ -55,7 +55,7 @@ async function eliminarMonitor(req, res) {
     if (!deletedMonitor) return res.status(404).json({"status":"Error monitor no encontrado"});
     res.status(200).json({"status":"operación realizada"});
   } catch (err) {
-    console.error("Error en actualizarMonitor:", err.message);
+    console.error("Error en EliminarMonitor:", err.message);
     res.status(500).json({"status":"Error al eliminar el monitor"});
   }
 }

@@ -10,7 +10,7 @@ import { Usuario } from '../usuario'
 export class GestionarUsuarios {
   private http = inject(HttpClient);
 
-  private apiURL =  'http://localhost:3000/usuarios';
+  private apiURL =  'http://localhost:4000/usuarios';
 
   // Señal privada para el usuario autenticado (o null si nadie)
   private _usuarioActual = signal<String | null>(null);

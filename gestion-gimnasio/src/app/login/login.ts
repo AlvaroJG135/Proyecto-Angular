@@ -21,7 +21,7 @@ export class Login {
     this.auth.login(this.codigo, this.clave).subscribe({
       next: () => {
         this.error = "";
-        this.router.navigateByUrl('/boxeadores');
+        this.router.navigateByUrl('/dashboard');
       },
       error: (err) => {
         console.error('Login fallido', err);

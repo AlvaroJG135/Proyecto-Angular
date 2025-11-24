@@ -1,0 +1,18 @@
+2025-11-24T11:12:00.298Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario/clave incorrecta de 6915af15a4f62c17ec65c611 
+2025-11-24T11:12:00.308Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-24T11:12:42.145Z [INFO] ::1 - - "POST /usuarios/registro" REGISTRO: Usuario registrado
+2025-11-24T11:13:00.971Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69243daaa146455b42f0d851 
+2025-11-24T11:13:47.468Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69243daaa146455b42f0d851 
+2025-11-24T11:14:13.963Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-24T11:14:32.965Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario/clave incorrecta de 69243daaa146455b42f0d851 
+2025-11-24T11:14:32.969Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-24T11:14:33.808Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario/clave incorrecta de 69243daaa146455b42f0d851 
+2025-11-24T11:14:33.811Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-24T11:15:00.208Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69243daaa146455b42f0d851 
+2025-11-24T11:15:27.522Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-24T11:15:40.927Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69243daaa146455b42f0d851 
+2025-11-24T11:22:42.014Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69243daaa146455b42f0d851 
+2025-11-24T11:26:29.764Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-24T11:27:16.890Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69243daaa146455b42f0d851 
+2025-11-24T11:27:19.108Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-24T11:36:46.701Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69243daaa146455b42f0d851 

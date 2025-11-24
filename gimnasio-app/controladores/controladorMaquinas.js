@@ -56,7 +56,7 @@ async function eliminarMaquina(req, res) {
     if (!deletedMaquina) return res.status(404).json({"status":"Error maquina no encontrada"});
     res.status(200).json({"status":"operación realizada"});
   } catch (err) {
-    console.error("Error en actualizarMaquina:", err.message);
+    console.error("Error en EliminarMaquina:", err.message);
     res.status(500).json({"status":"Error al eliminar la maquina"});
   }
 }
