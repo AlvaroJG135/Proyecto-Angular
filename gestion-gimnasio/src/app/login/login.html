@@ -1,0 +1,19 @@
+<div class="form-container">
+ <h2>Login de usuario</h2>
+
+ <form (ngSubmit)="onSubmit()">
+ <!-- Usuario -->
+ <div class="form-group">
+ <label>Codigo de usuario</label>
+ <input type="text" [(ngModel)]="codigo" name="codigo" />
+ </div>
+
+ <!-- Contraseña -->
+ <div class="form-group">
+ <label>Contraseña</label>
+ <input type="password" [(ngModel)]="clave" name="clave" />
+ </div>
+
+ <button type="submit" >Acceder</button>
+ </form>
+</div>

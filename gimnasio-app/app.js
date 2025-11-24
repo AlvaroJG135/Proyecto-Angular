@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 const rutasMonitores = require('./rutas/rutasMonitores');
 const rutasMaquinas = require('./rutas/rutasMaquinas');
+const rutasUsuarios = require('./rutas/rutasUsuarios');
 
 // Permite recibir JSON en peticiones POST
 app.use(express.json());
@@ -21,6 +22,7 @@ mongoose.connect('mongodb://root:example@localhost:27017/2daw?authSource=admin')
 
 app.use('/monitores', rutasMonitores);
 app.use('/maquinas', rutasMaquinas);
+app.use('/usuarios', rutasUsuarios);
 
 app.use((req, res) => {
   res.status(404).send('Ruta no encontrada');

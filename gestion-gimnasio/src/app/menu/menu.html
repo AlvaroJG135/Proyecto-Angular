@@ -4,7 +4,14 @@
         <div class="nav-buttons">
             <button class="nav-btn" routerLink="/maquinas">Máquinas</button>
             <button class="nav-btn" routerLink="/monitores">Monitores</button>
-            <button class="nav-btn" routerLink="/registro">Registro</button>
+            @if(!this.estaAutenticado()){
+              <button class="nav-btn" routerLink="/registro">Registro</button>
+              <button class="nav-btn" routerLink="/login">Login</button>
+            }
+            @if(this.estaAutenticado()){
+              <button class="nav-btn" (click)="logout()">Login</button>
+            }
+
         </div>
     </div>
 </nav>
