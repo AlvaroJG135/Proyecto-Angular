@@ -1,3 +1,4 @@
+//creamos un CRUD para maquinas usando express
 const express = require('express');
 const router = express.Router();
 const ControladorMaquinas = require('../controladores/controladorMaquinas');

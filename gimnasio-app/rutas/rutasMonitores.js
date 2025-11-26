@@ -1,3 +1,4 @@
+//creamos un CRUD para monitores usando express
 const express = require('express');
 const router = express.Router();
 const ControladorMonitores = require('../controladores/controladorMonitores');

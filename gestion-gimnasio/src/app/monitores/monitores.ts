@@ -18,6 +18,7 @@ import { Filtro } from '../filtro/filtro';
 
 export class Monitores {
   modoEdicion: boolean = false;
+  //funcion para optimizar el ngFor si non tiene _id utiliza el index
   trackByMonitorId(index: number, monitor: Monitor): string {
     return monitor._id ?? index.toString();
   }
@@ -71,6 +72,7 @@ export class Monitores {
   mostrarFormulario: boolean = false;
   nuevoMonitor: Partial<Monitor> = {};
 
+  // Inyección de dependencias: servicio que maneja llamadas HTTP
   constructor(private gestionarMonitores: GestionarMonitores) { }
 
   onFilterChange(valor: string) {
@@ -84,49 +86,57 @@ export class Monitores {
   onDireccionChange(direccion: 'asc' | 'desc') {
     this.ordenar = direccion;
   }
-
+  // Se llama cuando el usuario selecciona una fila para editar
   onSelect(monitor: Monitor): void {
-    this.modoEdicion = true;
-    this.mostrarFormulario = true;
-    this.nuevoMonitor = { ...monitor };
-    this.selectedMonitor = monitor;
+    this.modoEdicion = true;              // Activamos modo edición
+    this.mostrarFormulario = true;        // Mostramos el formulario 
+    this.nuevoMonitor = { ...monitor };   // Clonamos el monitor seleccionado en el formulario 
+    this.selectedMonitor = monitor;       // Guardamos referencia al monitor original
   }
-
+  //obtiene la lista de monitores desde el backend
   getMonitores(): void {
     this.gestionarMonitores.getMonitores()
       .subscribe(monitores => this.monitores = monitores);
   }
-
+  //pedimos los monitores
   ngOnInit() {
     this.getMonitores();
   }
-
+  //abrir formulario
   abrirFormulario(): void {
     this.mostrarFormulario = true;
     this.nuevoMonitor = {};
   }
-
+  //cerrar formulario
   cancelarFormulario(): void {
     this.mostrarFormulario = false;
     this.nuevoMonitor = {};
     this.selectedMonitor = undefined;
     this.modoEdicion = false;
   }
+  //Modificar un monitor existente
   modificarMonitor(): void {
+    // Validación mínima: debe existir un monitor seleccionado y debe haber modelo en formulario
     if (!this.selectedMonitor || !this.nuevoMonitor.nombre) { return; }
+    //crea el objeto que enviaremos al backend
     const monitorEditado = {
+      //copia los datos actuales del monitor seleccionado
       ...this.selectedMonitor,
       nombre: this.nuevoMonitor.nombre?.trim() || '',
       fechaNacimiento: this.nuevoMonitor.fechaNacimiento || '',
       salario: this.nuevoMonitor.salario || 0,
       turno: this.nuevoMonitor.turno || ''
     } as Monitor;
-    this.gestionarMonitores.actualizarMonitor(monitorEditado)
-      .subscribe({
+
+     // Llamada al servicio para actualizar
+    this.gestionarMonitores.actualizarMonitor(monitorEditado).subscribe({
         next: m => {
+          //comprueba si el monitor modificado tiene _id y actualiza la lista
           if (m && m._id) {
-            const idx = this.monitores.findIndex(mon => mon._id === m._id);
-            if (idx > -1) this.monitores[idx] = m;
+            //busca el monitor en la lista por su _id
+            const id_monitor = this.monitores.findIndex(mon => mon._id === m._id);
+            //si lo encuentra actualiza sus datos
+            if (id_monitor > -1) this.monitores[id_monitor] = m;
           }
           this.cancelarFormulario();
         },
@@ -144,10 +154,11 @@ export class Monitores {
       turno: this.nuevoMonitor.turno || ''
     } as Monitor;
     if (!monitor.nombre) { return; }
-    this.gestionarMonitores.addMonitor(monitor)
-      .subscribe({
+    this.gestionarMonitores.addMonitor(monitor).subscribe({
         next: m => {
+          //comprueba si el monitor modificado tiene _id y actualiza la lista
           if (m && m._id) {
+            //añade el nuevo monitor a la lista
             this.monitores.push(m);
           }
           this.mostrarFormulario = false;
@@ -158,9 +169,11 @@ export class Monitores {
         }
       });
   }
-
+  //elimina un monitor, lo filtra de la lista y llama al servicio para eliminarlo del backend
   delete(monitor: Monitor): void {
+     // Eliminamos del array local
     this.monitores = this.monitores.filter(h => h !== monitor);
+    // Llamada al servicio para borrar en backend
     this.gestionarMonitores.deleteMonitor(monitor._id!).subscribe();
   }
 
