@@ -16,3 +16,29 @@
 2025-11-24T11:27:16.890Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69243daaa146455b42f0d851 
 2025-11-24T11:27:19.108Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
 2025-11-24T11:36:46.701Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69243daaa146455b42f0d851 
+2025-11-24T11:47:30.553Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69243daaa146455b42f0d851 
+2025-11-25T11:36:38.669Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 12345 no encontrado
+2025-11-25T11:36:38.679Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-25T11:36:40.119Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 12345 no encontrado
+2025-11-25T11:36:40.131Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-25T11:36:40.687Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 12345 no encontrado
+2025-11-25T11:36:40.694Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-25T11:36:40.857Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 12345 no encontrado
+2025-11-25T11:36:40.869Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-25T11:36:41.049Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 12345 no encontrado
+2025-11-25T11:36:41.062Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-25T11:36:41.215Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 12345 no encontrado
+2025-11-25T11:36:41.225Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-25T11:36:41.551Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 12345 no encontrado
+2025-11-25T11:36:41.554Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-25T11:36:41.726Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 12345 no encontrado
+2025-11-25T11:36:41.736Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-25T11:36:41.920Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 12345 no encontrado
+2025-11-25T11:36:41.932Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-25T11:36:47.539Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 12345 no encontrado
+2025-11-25T11:36:47.545Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-25T11:36:48.925Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 12345 no encontrado
+2025-11-25T11:36:48.936Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-25T11:37:12.534Z [INFO] ::1 - - "POST /usuarios/registro" REGISTRO: Usuario registrado
+2025-11-25T11:37:25.675Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 692594e851f190dba4b7c4df 
+2025-11-25T11:38:22.107Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 

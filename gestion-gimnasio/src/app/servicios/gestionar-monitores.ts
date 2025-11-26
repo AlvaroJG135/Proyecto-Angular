@@ -54,6 +54,7 @@ export class GestionarMonitores {
       catchError(this.handleError<Monitor>('addMonitor'))
     );
   }
+  
   deleteMonitor(monitor: Monitor | string): Observable<Monitor> {
     const _id = typeof monitor === 'string' ? monitor : monitor._id;
     const url = `${this.serviceUrl}/${_id}`;
@@ -63,6 +64,4 @@ export class GestionarMonitores {
       catchError(this.handleError<Monitor>('deleteMonitor'))
     );
   }
-
-
 }
