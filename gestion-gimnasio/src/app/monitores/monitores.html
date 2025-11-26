@@ -1,6 +1,7 @@
 <div class="pagina-normal" [class.blur]="mostrarFormulario">
   <h2>Monitores</h2>
   <button class="btn-add" (click)="abrirFormulario()">Añadir monitor</button>
+  <!--Componente filtro-->
   <app-filtro (filterChange)="onFilterChange($event)" placeholder="Busca un monitor..."></app-filtro>
   
   <div class="controles-orden">
@@ -45,9 +46,11 @@
 
 @if(mostrarFormulario){
 <div class="formulario">
+  <!--Si es true devuelve editar monitor, si es false nuevo monitor-->
   <h3>{{ modoEdicion ? 'Editar Monitor' : 'Nuevo Monitor' }}</h3>
   <form>
     <label>Nombre:</label>
+    <!--Permite sincronizar los datos entre el componente y el html-->
     <input [(ngModel)]="nuevoMonitor.nombre" name="nombre" required />
     <label>Fecha de nacimiento:</label>
     <input [(ngModel)]="nuevoMonitor.fechaNacimiento" name="fechaNacimiento" type="date" />

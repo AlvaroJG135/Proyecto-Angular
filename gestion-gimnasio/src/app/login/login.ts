@@ -16,7 +16,7 @@ import { GestionarUsuarios } from '../servicios/gestionar-usuarios';
 export class Login {
 
   private auth = inject(GestionarUsuarios); // Servicio de autenticación HTTP
-  private router = inject(Router); // Servicio de navegación
+  private router = inject(Router); // Servicio de navegacion
 
   error: string = "";
   codigo = ''; 

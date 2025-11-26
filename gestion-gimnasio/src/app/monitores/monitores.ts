@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Monitor } from '../monitor';
 import { FormsModule } from '@angular/forms';
@@ -8,12 +8,14 @@ import { MatCardModule } from '@angular/material/card';
 import { Filtro } from '../filtro/filtro';
 
 @Component({
+  //selector para usar el componente en HTML
   selector: 'app-monitores,card-overview-example',
   standalone: true,
   imports: [FormsModule, CommonModule, MatCardModule, MatButtonModule, Filtro],
   templateUrl: './monitores.html',
   styleUrls: ['./monitores.css'],
 })
+
 export class Monitores {
   modoEdicion: boolean = false;
   trackByMonitorId(index: number, monitor: Monitor): string {
@@ -34,6 +36,7 @@ export class Monitores {
     if (this.filtroTexto) {
       const txt = this.filtroTexto.toLowerCase();
       resultado = resultado.filter(m => (m.nombre || '').toLowerCase().includes(txt));
+
     }
 
     // se ordena por campo y direccion

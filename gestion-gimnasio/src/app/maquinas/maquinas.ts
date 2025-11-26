@@ -11,7 +11,6 @@ import { MaquinaDetalle } from "../maquina-detalle/maquina-detalle";
 import { Router } from '@angular/router';
 import { GestionarMaquinas } from '../servicios/gestionar-maquinas';
 import { Filtro } from '../filtro/filtro';
-// RouterLink removed from imports because template may not use it here
 
 @Component({
     selector: 'app-maquinas',

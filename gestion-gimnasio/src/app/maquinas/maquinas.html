@@ -1,7 +1,7 @@
 <div class="pagina-normal" [class.blur]="mostrarFormulario">
     <h2>Listado de maquinas</h2>
     <button class="btn-add" title="Añadir maquina" (click)="abrirFormulario()">Añadir maquina</button>
-
+    <!--Componente filtro-->
     <app-filtro (filterChange)="applyFilter($event)" placeholder="Busca una máquina..."></app-filtro>
 
     <div class="mat-elevation-z8">
@@ -75,9 +75,11 @@
 
 @if(mostrarFormulario){
 <div class="formulario">
+    <!--Si es true devuelve editar maquina, si es false nueva maquina-->
     <h3>{{ modoEdicion ? 'Editar Máquina' : 'Nueva Máquina' }}</h3>
     <form>
         <label>Modelo: </label>
+        <!--Permite sincronizar los datos entre el componente y el html-->
         <input [(ngModel)]="nuevaMaquina.modelo" name="modelo" required />
         <label>Marca: </label>
         <input [(ngModel)]="nuevaMaquina.marca" name="marca" />

@@ -2,7 +2,6 @@ import { Injectable, inject, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, of, tap, throwError } from 'rxjs';
 import { RespuestaAuth } from '../respuestaAuth';
-import { Usuario } from '../usuario'
 
 @Injectable({
   providedIn: 'root'
