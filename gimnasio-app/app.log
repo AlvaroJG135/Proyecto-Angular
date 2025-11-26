@@ -42,3 +42,13 @@
 2025-11-25T11:37:12.534Z [INFO] ::1 - - "POST /usuarios/registro" REGISTRO: Usuario registrado
 2025-11-25T11:37:25.675Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 692594e851f190dba4b7c4df 
 2025-11-25T11:38:22.107Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-26T16:14:25.012Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 123456 no encontrado
+2025-11-26T16:14:25.021Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-26T16:15:19.416Z [INFO] ::1 - - "POST /usuarios/registro" REGISTRO: Usuario registrado
+2025-11-26T16:15:34.574Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 123456 no encontrado
+2025-11-26T16:15:34.580Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-26T16:15:43.027Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario alvaro no encontrado
+2025-11-26T16:15:43.031Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-26T16:15:51.654Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario alvaro no encontrado
+2025-11-26T16:15:51.661Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2025-11-26T16:15:58.193Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 692727971c73ab369d2c4789 

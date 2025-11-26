@@ -1,80 +1,121 @@
-/* DashboardComponent's private CSS styles */
-[class*='col-'] {
-    float: left;
-    padding-right: 20px;
-    padding-bottom: 20px;
-}
-
-[class*='col-']:last-of-type {
-    padding-right: 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-*,
-*:after,
-*:before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-h3 {
+h1 {
+    font-size: 4rem;
     text-align: center;
-    margin-bottom: 0;
+    margin: 2rem 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #000000;
 }
 
-h4 {
-    position: relative;
+/* Opcional: efecto visual */
+h1 {
+    text-shadow: 2px 2px 6px #51ff00;
 }
 
+section {
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #000000;
+    border-left: 4px solid #000000;
+    padding-left: 0.5rem;
+}
+
+/* Grid base */
 .grid {
-    margin: 0;
-}
-
-.col-1-4 {
-    width: 25%;
-}
-
-.module {
-    padding: 20px;
-    text-align: center;
-    color: #eee;
-    max-height: 120px;
-    min-width: 120px;
-    background-color: #607D8B;
-    border-radius: 2px;
-}
-
-.module:hover {
-    background-color: #EEE;
-    cursor: pointer;
-    color: #607d8b;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .grid-pad {
-    padding: 10px 0;
+    padding: 0.5rem;
 }
 
-.grid-pad>[class*='col-']:last-of-type {
-    padding-right: 20px;
+.col-1-4 {
+    flex: 1 1 calc(25% - 1rem);
+    min-width: 220px;
 }
 
-@media (max-width: 600px) {
-    .module {
-        font-size: 10px;
-        max-height: 75px;
-    }
+.col-1-5 {
+    flex: 1 1 calc(20% - 1rem);
+    min-width: 180px;
 }
 
-@media (max-width: 1024px) {
-    .grid {
-        margin: 0;
-    }
+/* Módulos */
+.module {
+    background: #333333;
+    border: 2px solid #51ff00;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    .module {
-        min-width: 60px;
-    }
+.module:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Máquinas */
+.maquina h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #51ff00;
+}
+
+.maquina .precio {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.maquina .marca {
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+/* Monitores */
+.monitor h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #51ff00;
+}
+
+.monitor p {
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+/* Enlaces dentro de los encabezados */
+.section-link {
+    text-decoration: none;
+    color: #000000;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+/* Línea decorativa debajo del enlace */
+.section-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: #000000;
+    transition: width 0.3s ease;
+}
+
+/* Hover: cambio de color y subrayado animado */
+.section-link:hover {
+    color: #000000;
+}
+
+.section-link:hover::after {
+    width: 100%;
 }

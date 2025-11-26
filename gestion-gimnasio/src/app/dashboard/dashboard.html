@@ -1,10 +1,29 @@
-<h3>Top Maquinas</h3>
-<div class="grid grid-pad">
-    @for(maquina of maquinas;track maquina._id){
-    <a class="col-1-4" routerLink="/detalle/{{maquina._id}}">
-        <div class="module maquina">
-            <h4>{{maquina.modelo}}</h4>
-        </div>
-    </a>
-    }
-</div>
+<h1>FIT-KMKZ</h1>
+
+<section class="top-maquinas">
+    <h3><a class="section-link" routerLink="/maquinas">Top Maquinas</a></h3>
+    <div class="grid grid-pad">
+        @for(maquina of maquinasTop;track maquina._id){
+            <a class="col-1-4" routerLink="/detalle/{{maquina._id}}">
+                <div class="module maquina">
+                        <h4>{{maquina.modelo}}</h4>
+                        <p class="precio">{{maquina.precio}}€</p>
+                        <p class="marca">{{maquina.marca}}</p>
+                </div>
+            </a>
+        }
+    </div>
+</section>
+
+<section class="top-monitores">
+    <h3><a class="section-link" routerLink="/monitores">Top Monitores</a></h3>
+    <div class="grid grid-pad monitors-list">
+        @for(monitor of monitoresTop;track monitor._id){
+            <div class="col-1-5 module monitor">
+                <h4>{{monitor.nombre}}</h4>
+                <p>Salario: {{monitor.salario}}€</p>
+                <p>Turno: {{monitor.turno}}</p>
+            </div>
+        }
+    </div>
+</section>
