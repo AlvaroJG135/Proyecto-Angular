@@ -2,10 +2,7 @@
     <h2>Listado de maquinas</h2>
     <button class="btn-add" title="Añadir maquina" (click)="abrirFormulario()">Añadir maquina</button>
 
-    <mat-form-field>
-        <mat-label>Filtrar por...</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Busca una máquina..." #input>
-    </mat-form-field>
+    <app-filtro (filterChange)="applyFilter($event)" placeholder="Busca una máquina..."></app-filtro>
 
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" matSort>

@@ -1,8 +1,28 @@
 <div class="pagina-normal" [class.blur]="mostrarFormulario">
   <h2>Monitores</h2>
   <button class="btn-add" (click)="abrirFormulario()">Añadir monitor</button>
+  <app-filtro (filterChange)="onFilterChange($event)" placeholder="Busca un monitor..."></app-filtro>
+  
+  <div class="controles-orden">
+    <div class="control-orden">
+      <label for="campo-orden">Ordenar por:</label>
+      <select id="campo-orden" [(ngModel)]="ordenarPor" (change)="onOrdenChange(ordenarPor)">
+        <option value="nombre">Nombre</option>
+        <option value="salario">Salario</option>
+        <option value="turno">Turno</option>
+      </select>
+    </div>
+    <div class="control-direccion">
+      <label for="direccion-orden">Dirección:</label>
+      <select id="direccion-orden" [(ngModel)]="ordenar" (change)="onDireccionChange(ordenar)">
+        <option value="asc">Ascendente</option>
+        <option value="desc">Descendente</option>
+      </select>
+    </div>
+  </div>
+  
   <ul class="monitores">
-    @for (monitor of monitores; track trackByMonitorId($index, monitor)){
+    @for (monitor of filteredMonitores; track trackByMonitorId($index, monitor)){
     <mat-card class="example-card" appearance="outlined">
       <mat-card-header>
         <mat-card-title>{{ monitor.nombre }}</mat-card-title>

@@ -10,12 +10,13 @@ import { Maquina } from '../maquina';
 import { MaquinaDetalle } from "../maquina-detalle/maquina-detalle";
 import { Router } from '@angular/router';
 import { GestionarMaquinas } from '../servicios/gestionar-maquinas';
+import { Filtro } from '../filtro/filtro';
 // RouterLink removed from imports because template may not use it here
 
 @Component({
     selector: 'app-maquinas',
     standalone: true,
-    imports: [FormsModule, CommonModule, MaquinaDetalle, MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule],
+    imports: [FormsModule, CommonModule, MaquinaDetalle, MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, Filtro],
     templateUrl: './maquinas.html',
     styleUrls: ['./maquinas.css'],
     encapsulation: ViewEncapsulation.None
@@ -143,9 +144,9 @@ export class Maquinas implements AfterViewInit {
         this.gestionarMaquinas.deleteMaquina(maquina._id!).subscribe();
     }
 
-    applyFilter(event: Event) {
-        const filterValue = (event.target as HTMLInputElement).value;
-        this.dataSource.filter = filterValue.trim().toLowerCase();
+    applyFilter(filterValue: string) {
+        const value = (filterValue || '').trim().toLowerCase();
+        this.dataSource.filter = value;
 
         if (this.dataSource.paginator) {
             this.dataSource.paginator.firstPage();

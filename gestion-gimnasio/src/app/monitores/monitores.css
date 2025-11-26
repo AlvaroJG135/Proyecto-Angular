@@ -201,6 +201,50 @@ h2 {
     box-shadow: 0 2px 4px rgba(43, 255, 0, 0.3);
 }
 
+.controles-orden {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.control-orden, .control-direccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.control-orden label, .control-direccion label {
+    font-weight: 600;
+    color: #333333;
+    font-size: 1rem;
+}
+
+.control-orden select, .control-direccion select {
+    padding: 0.6rem 1rem;
+    border: 2px solid #51ff00;
+    border-radius: 6px;
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.control-orden select:hover, .control-direccion select:hover {
+    border-color: #51ff00;
+    background-color: #51ff00;
+    color:#333333;
+}
+
+.control-orden select:focus, .control-direccion select:focus {
+    outline: none;
+    border-color: #51ff00;
+    box-shadow: 0 0 8px rgba(81, 255, 0, 0.3);
+}
+
 .formulario {
     position: fixed;
     top: 50%;
