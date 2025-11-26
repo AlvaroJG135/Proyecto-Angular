@@ -1,8 +1,10 @@
 <h1>FIT-KMKZ</h1>
 
 <section class="top-maquinas">
+    <!--Titulo con enlace a la pagina de maquinas--> 
     <h3><a class="section-link" routerLink="/maquinas">Top Maquinas</a></h3>
     <div class="grid grid-pad">
+        <!--bucle para mostrar las maquinas mas caras--> 
         @for(maquina of maquinasTop;track maquina._id){
             <a class="col-1-4" routerLink="/detalle/{{maquina._id}}">
                 <div class="module maquina">
@@ -15,9 +17,12 @@
     </div>
 </section>
 
+
 <section class="top-monitores">
+    <!--Titulo con enlace a la pagina de monitores--> 
     <h3><a class="section-link" routerLink="/monitores">Top Monitores</a></h3>
     <div class="grid grid-pad monitors-list">
+        <!-- bucle para mostrar los monitores con mayor salario -->
         @for(monitor of monitoresTop;track monitor._id){
             <div class="col-1-5 module monitor">
                 <h4>{{monitor.nombre}}</h4>
