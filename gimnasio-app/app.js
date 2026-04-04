@@ -25,6 +25,10 @@ app.use(cors({
 }))
 
 
+const cookieParser = require('cookie-parser');
+
+app.use(cookieParser());
+
 // Conecta a MongoDB usando Mongoose
 // URL: mongodb://usuario:contraseña@host:puerto/baseDatos?authSource=admin
 mongoose.connect('mongodb://root:example@localhost:27017/2daw?authSource=admin')

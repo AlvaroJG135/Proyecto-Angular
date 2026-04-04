@@ -1,4 +1,5 @@
 export interface RespuestaAuth {
   message: string;
-  // opcionalmente otros datos
+  codigo?: string;
+  rol?: 'usuario' | 'admin';
 }

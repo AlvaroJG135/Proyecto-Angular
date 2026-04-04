@@ -79,6 +79,20 @@ export class Monitores {
     this.filtroTexto = valor || '';
   }
 
+  onFotoSeleccionada(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      this.nuevoMonitor.nombreArchivo = file.name;
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.nuevoMonitor.foto = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
   onOrdenChange(campo: 'nombre' | 'salario' | 'turno') {
     this.ordenarPor = campo;
   }
@@ -125,7 +139,9 @@ export class Monitores {
       nombre: this.nuevoMonitor.nombre?.trim() || '',
       fechaNacimiento: this.nuevoMonitor.fechaNacimiento || '',
       salario: this.nuevoMonitor.salario || 0,
-      turno: this.nuevoMonitor.turno || ''
+      turno: this.nuevoMonitor.turno || '',
+      foto: this.nuevoMonitor.foto || this.selectedMonitor?.foto || '',
+      nombreArchivo: this.nuevoMonitor.nombreArchivo || this.selectedMonitor?.nombreArchivo || ''
     } as Monitor;
 
      // Llamada al servicio para actualizar
@@ -151,7 +167,9 @@ export class Monitores {
       nombre: this.nuevoMonitor.nombre?.trim() || '',
       fechaNacimiento: this.nuevoMonitor.fechaNacimiento || '',
       salario: this.nuevoMonitor.salario || 0,
-      turno: this.nuevoMonitor.turno || ''
+      turno: this.nuevoMonitor.turno || '',
+      foto: this.nuevoMonitor.foto || '',
+      nombreArchivo: this.nuevoMonitor.nombreArchivo || ''
     } as Monitor;
     if (!monitor.nombre) { return; }
     this.gestionarMonitores.addMonitor(monitor).subscribe({

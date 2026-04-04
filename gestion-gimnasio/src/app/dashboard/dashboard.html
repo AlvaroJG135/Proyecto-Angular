@@ -1,34 +1,64 @@
-<h1>FIT-KMKZ</h1>
+<ng-container *ngIf="esAdmin; else usuarioBlock">
+<div class="dashboard-container">
 
-<section class="top-maquinas">
-    <!--Titulo con enlace a la pagina de maquinas--> 
-    <h3><a class="section-link" routerLink="/maquinas">Top Maquinas</a></h3>
-    <div class="grid grid-pad">
-        <!--bucle para mostrar las maquinas mas caras--> 
-        @for(maquina of maquinasTop;track maquina._id){
-            <a class="col-1-4" routerLink="/detalle/{{maquina._id}}">
-                <div class="module maquina">
-                        <h4>{{maquina.modelo}}</h4>
-                        <p class="precio">{{maquina.precio}}€</p>
-                        <p class="marca">{{maquina.marca}}</p>
-                </div>
-            </a>
-        }
+  <h1>FIT-KMKZ</h1>
+
+  <div class="graficos-container">
+    <!-- GRÁFICO SALARIOS -->
+    <div class="grafico-card">
+      <h2>Salarios de Monitores</h2>
+      <ngx-charts-bar-vertical
+        [results]="salarioData"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [gradient]="gradient"
+        [scheme]="colorScheme"
+        [view]="[650, 300]">
+      </ngx-charts-bar-vertical>
     </div>
-</section>
 
+    <!-- GRÁFICO MARCAS -->
+    <div class="grafico-card">
+      <h2>Marcas de Máquinas</h2>
+      <ngx-charts-pie-chart
+        [results]="marcasData"
+        [legend]="showLegend"
+        [scheme]="colorScheme"
+        [view]="[650, 300]">
+      </ngx-charts-pie-chart>
+    </div>
+  </div>
 
-<section class="top-monitores">
-    <!--Titulo con enlace a la pagina de monitores--> 
-    <h3><a class="section-link" routerLink="/monitores">Top Monitores</a></h3>
-    <div class="grid grid-pad monitors-list">
-        <!-- bucle para mostrar los monitores con mayor salario -->
-        @for(monitor of monitoresTop;track monitor._id){
-            <div class="col-1-5 module monitor">
-                <h4>{{monitor.nombre}}</h4>
-                <p>Salario: {{monitor.salario}}€</p>
-                <p>Turno: {{monitor.turno}}</p>
+</div>
+</ng-container>
+<ng-template #usuarioBlock>
+  <section class="usuario-welcome">
+    <h2>Hola, {{ gestionarUsuarios.usuarioActual() || 'invitado' }}</h2>
+  </section>
+
+  <section class="horario-semanal">
+    <h3>Horario semanal de clases</h3>
+    <div class="calendar-grid">
+      <div class="day-column" *ngFor="let dia of diasSemana">
+        <h4>{{dia}}</h4>
+        <div class="day-clase" *ngFor="let clase of clasesDisponibles">
+          <ng-container *ngIf="clase.dia === dia">
+            <div class="clase-card">
+              <p class="clase-nombre">{{clase.nombre}}</p>
+              <p>{{clase.hora}}</p>
+              <p>{{clase.monitor}}</p>
+              <button class="btn-small" (click)="toggleClaseEnCarrito(clase)" [disabled]="enReservada(clase)">
+                {{ enReservada(clase) ? 'Reservada' : (enCarrito(clase) ? 'Quitar' : 'Añadir') }}
+              </button>
             </div>
-        }
+          </ng-container>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
+</ng-template>

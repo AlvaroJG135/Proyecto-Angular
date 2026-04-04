@@ -29,8 +29,9 @@
         <mat-card-title>{{ monitor.nombre }}</mat-card-title>
         <mat-card-subtitle>{{ monitor._id }}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="../../assets/imagenes/icono.png" />
       <mat-card-content>
+        <img *ngIf="monitor.foto" [src]="monitor.foto" alt="Foto de {{monitor.nombre}}" />
+        <p><b>Archivo: </b>{{ monitor.nombreArchivo || 'Sin archivo' }}</p>
         <p><b>Fecha de nacimiento: </b>{{monitor.fechaNacimiento}}</p>
         <p><b>Turno: </b>{{monitor.turno}}</p>
         <p><b>Salario: </b>{{monitor.salario}}</p>
@@ -58,6 +59,8 @@
     <input [(ngModel)]="nuevoMonitor.salario" name="salario" type="number" min="0" />
     <label>Turno:</label>
     <input [(ngModel)]="nuevoMonitor.turno" name="turno" />
+    <label>Archivo:</label>
+    <input type="file" (change)="onFotoSeleccionada($event)" accept="image/*" />
     <div class="modal-actions">
       <button type="button" class="cacelar" (click)="cancelarFormulario()">Cancelar</button>
       @if (!modoEdicion) {

@@ -52,3 +52,102 @@
 2025-11-26T16:15:51.654Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario alvaro no encontrado
 2025-11-26T16:15:51.661Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
 2025-11-26T16:15:58.193Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 692727971c73ab369d2c4789 
+2026-03-31T12:53:28.186Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario user123 no encontrado
+2026-03-31T12:55:58.898Z [ERROR] ::1 - - "POST /usuarios/registro" REGISTRO: error ValidationError: rol: `user` is not a valid enum value for path `rol`.}
+2026-03-31T12:56:51.914Z [INFO] ::1 - - "POST /usuarios/registro" REGISTRO: Usuario registrado
+2026-03-31T12:57:09.466Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T12:57:57.883Z [INFO] ::1 - - "POST /usuarios/registro" REGISTRO: Usuario registrado
+2026-03-31T12:58:23.343Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc4d5092bcaf6e3fb367a 
+2026-03-31T13:42:17.467Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T13:54:30.784Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T13:57:59.822Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 123456 no encontrado
+2026-03-31T13:57:59.830Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T13:58:00.242Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 123456 no encontrado
+2026-03-31T13:58:00.247Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T13:58:01.758Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 123456 no encontrado
+2026-03-31T13:58:01.763Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T13:58:01.927Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 123456 no encontrado
+2026-03-31T13:58:01.932Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T13:58:02.075Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 123456 no encontrado
+2026-03-31T13:58:02.078Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T13:58:10.071Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario/clave incorrecta de 69cbc493092bcaf6e3fb3652 
+2026-03-31T13:58:10.076Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T13:58:13.878Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T14:12:02.679Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T14:12:11.047Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:12:34.486Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T14:21:11.518Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:21:39.640Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T14:22:43.614Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:23:10.995Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario/clave incorrecta de 69cbc493092bcaf6e3fb3652 
+2026-03-31T14:23:11.001Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:23:12.745Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario/clave incorrecta de 69cbc493092bcaf6e3fb3652 
+2026-03-31T14:23:12.750Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:23:16.583Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T14:23:18.502Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:23:32.546Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T14:29:41.783Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:29:52.608Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T14:29:54.833Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:30:01.787Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc4d5092bcaf6e3fb367a 
+2026-03-31T14:30:03.917Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:30:13.640Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T14:30:41.002Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:58:08.124Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario amdin123 no encontrado
+2026-03-31T14:58:08.130Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:58:09.628Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario amdin123 no encontrado
+2026-03-31T14:58:09.633Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:58:14.855Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario amdin123 no encontrado
+2026-03-31T14:58:14.861Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:58:19.435Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T14:58:23.114Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T14:58:30.986Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc4d5092bcaf6e3fb367a 
+2026-03-31T14:58:32.487Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T15:02:00.485Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario/clave incorrecta de 69cbc493092bcaf6e3fb3652 
+2026-03-31T15:02:00.492Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T15:02:05.027Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T15:02:07.383Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T15:02:14.711Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc4d5092bcaf6e3fb367a 
+2026-03-31T15:02:34.950Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T15:09:20.828Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T15:09:26.837Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T15:09:36.564Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc4d5092bcaf6e3fb367a 
+2026-03-31T15:09:39.048Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T15:10:12.218Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T15:10:13.828Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T15:10:21.654Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc4d5092bcaf6e3fb367a 
+2026-03-31T15:12:22.131Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T15:12:35.748Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T15:12:37.886Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T15:12:52.335Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc4d5092bcaf6e3fb367a 
+2026-03-31T15:13:57.740Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T15:14:09.556Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T15:14:18.457Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T15:14:27.548Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc4d5092bcaf6e3fb367a 
+2026-03-31T15:15:32.898Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T15:15:41.353Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-03-31T15:31:01.874Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-03-31T15:32:29.559Z [INFO] ::1 - - "POST /usuarios/registro" REGISTRO: Usuario registrado
+2026-03-31T15:32:50.361Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbe90dde6805f9b51d098b 
+2026-04-01T12:15:40.226Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-04-01T12:15:42.856Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario 123456 no encontrado
+2026-04-01T12:15:42.861Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-04-01T12:20:04.328Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc4d5092bcaf6e3fb367a 
+2026-04-01T12:23:34.570Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-04-01T12:23:42.926Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-04-01T14:21:08.369Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-04-01T14:21:19.614Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc4d5092bcaf6e3fb367a 
+2026-04-01T14:44:49.371Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-04-01T14:45:04.254Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbe90dde6805f9b51d098b 
+2026-04-04T12:17:35.004Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-04-04T12:17:48.992Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-04-04T12:34:45.336Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-04-04T12:34:56.840Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario usuari0123 no encontrado
+2026-04-04T12:34:56.847Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-04-04T12:35:02.009Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: usuario usuari0123 no encontrado
+2026-04-04T12:35:02.014Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-04-04T12:35:07.255Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc4d5092bcaf6e3fb367a 
+2026-04-04T12:41:48.618Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-04-04T12:42:10.773Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 
+2026-04-04T12:45:48.985Z [INFO] ::1 - - "POST /usuarios/logout" LOGOUT: cierre de sesión 
+2026-04-04T12:46:02.185Z [INFO] ::1 - - "POST /usuarios/login" LOGIN: login correcto de 69cbc493092bcaf6e3fb3652 

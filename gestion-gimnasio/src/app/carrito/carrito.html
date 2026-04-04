@@ -1,0 +1,28 @@
+<section class="carrito-page">
+  <div class="carrito-header">
+    <h2>Carrito de clases</h2>
+    <span class="badge">{{ cantidad || 0 }}</span>
+  </div>
+
+  <div *ngIf="carrito$().length === 0" class="vacio">
+    <p>No tienes clases añadidas. Ve a Dashboard para seleccionar las clases.</p>
+  </div>
+
+  <div *ngIf="carrito$().length > 0" class="carrito-contenido">
+    <ul>
+      <li *ngFor="let clase of carrito$()" class="carrito-item">
+        <div class="info">
+          <strong>{{ clase.nombre }}</strong>
+          <span>{{ clase.dia }} | {{ clase.hora }}</span>
+          <small>Monitor: {{ clase.monitor }}</small>
+        </div>
+        <button class="btn-eliminar" (click)="eliminar(clase)">Eliminar</button>
+      </li>
+    </ul>
+
+    <div class="carrito-footer">
+      <p><strong>Total:</strong> {{ carrito$().length }} clases</p>
+      <button class="btn-apuntarse" (click)="apuntarse()">Apuntarse</button>
+    </div>
+  </div>
+</section>

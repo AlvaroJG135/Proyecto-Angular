@@ -119,3 +119,102 @@ section h3 {
 .section-link:hover::after {
     width: 100%;
 }
+
+.usuario-welcome h2 {
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+.horario-semanal .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.day-column {
+    background: #1a1a1a;
+    border: 1px solid #51ff00;
+    border-radius: 8px;
+    padding: 0.8rem;
+}
+
+.day-column h4 {
+    margin-top: 0;
+    font-size: 1rem;
+    color: #51ff00;
+    border-bottom: 1px solid #51ff00;
+    padding-bottom: 0.4rem;
+}
+
+.clase-card {
+    background: #272727;
+    border: 1px solid #3d3d3d;
+    border-radius: 6px;
+    padding: 0.6rem;
+    margin-top: 0.6rem;
+}
+
+.clase-card .clase-nombre {
+    font-weight: bold;
+    margin: 0;
+    color: #ffffff;
+}
+
+.clase-card p {
+    margin: 0.2rem 0;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.btn-small {
+    background: #51ff00;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+}
+
+.btn-small:hover {
+    filter: brightness(0.9);
+}
+
+.info-carrito {
+    margin-top: 1rem;
+    color: #e0e0e0;
+    font-style: italic;
+}
+
+.dashboard-container {
+  padding: 24px;
+  font-family: Roboto, sans-serif;
+}
+
+.graficos-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 32px;
+  color: #333;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #555;
+}
+
+.grafico-card {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  flex: 1;
+}

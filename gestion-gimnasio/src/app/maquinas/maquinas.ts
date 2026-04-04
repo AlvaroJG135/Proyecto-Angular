@@ -7,7 +7,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { Maquina } from '../maquina';
-import { MaquinaDetalle } from "../maquina-detalle/maquina-detalle";
 import { Router } from '@angular/router';
 import { GestionarMaquinas } from '../servicios/gestionar-maquinas';
 import { Filtro } from '../filtro/filtro';
@@ -16,7 +15,7 @@ import { Filtro } from '../filtro/filtro';
     //selector para usar el componente en HTML
     selector: 'app-maquinas',
     standalone: true,
-    imports: [FormsModule, CommonModule, MaquinaDetalle, MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, Filtro],
+    imports: [FormsModule, CommonModule, MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, Filtro],
     templateUrl: './maquinas.html',
     styleUrls: ['./maquinas.css'],
     encapsulation: ViewEncapsulation.None

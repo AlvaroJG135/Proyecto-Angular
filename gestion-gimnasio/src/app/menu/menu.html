@@ -2,15 +2,16 @@
     <div class="nav-container">
         <h1 class="logo" routerLink="/dashboard">FIT-KMZK</h1>
         <div class="nav-buttons">
-            <button class="nav-btn" routerLink="/maquinas">Máquinas</button>
-            <button class="nav-btn" routerLink="/monitores">Monitores</button>
-            @if(!this.estaAutenticado()){
-              <button class="nav-btn" routerLink="/registro">Registro</button>
-              <button class="nav-btn" routerLink="/login">Login</button>
-            }
-            @if(this.estaAutenticado()){
-              <button class="nav-btn" (click)="logout()">Logout</button>
-            }
+            <button class="nav-btn" *ngIf="estaAutenticado() && esAdmin()" routerLink="/maquinas">Máquinas</button>
+            <button class="nav-btn" *ngIf="estaAutenticado() && esAdmin()" routerLink="/monitores">Monitores</button>
+            <button class="nav-btn" *ngIf="estaAutenticado()" routerLink="/dashboard">Dashboard</button>
+            <button class="nav-btn" *ngIf="estaAutenticado()" routerLink="/carrito">
+                Carrito
+                <span *ngIf="carritoService.cantidad() > 0">({{ carritoService.cantidad() }})</span>
+            </button>
+            <button class="nav-btn" routerLink="/registro" *ngIf="!estaAutenticado()">Registro</button>
+            <button class="nav-btn" routerLink="/login" *ngIf="!estaAutenticado()">Login</button>
+            <button class="nav-btn" (click)="logout()" *ngIf="estaAutenticado()">Logout</button>
 
         </div>
     </div>
