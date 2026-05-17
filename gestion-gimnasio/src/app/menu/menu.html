@@ -5,7 +5,7 @@
             <button class="nav-btn" *ngIf="estaAutenticado() && esAdmin()" routerLink="/maquinas">Máquinas</button>
             <button class="nav-btn" *ngIf="estaAutenticado() && esAdmin()" routerLink="/monitores">Monitores</button>
             <button class="nav-btn" *ngIf="estaAutenticado()" routerLink="/dashboard">Dashboard</button>
-            <button class="nav-btn" *ngIf="estaAutenticado()" routerLink="/carrito">
+            <button class="nav-btn" *ngIf="estaAutenticado() && !esAdmin()" routerLink="/carrito">
                 Carrito
                 <span *ngIf="carritoService.cantidad() > 0">({{ carritoService.cantidad() }})</span>
             </button>

@@ -12,6 +12,8 @@ import { GestionarUsuarios } from '../servicios/gestionar-usuarios';
 })
 export class Carrito {
   carrito$: any;
+  mensaje = '';
+  mensajeTipo: 'error' | 'success' = 'success';
 
   constructor(private carritoService: CarritoService, private gestionarUsuarios: GestionarUsuarios) {
     this.carrito$ = this.carritoService.carrito;
@@ -30,12 +32,14 @@ export class Carrito {
   apuntarse() {
     const carrito = this.carritoService.carrito();
     if (carrito.length === 0) {
-      alert('Seleccione al menos una clase para apuntarse.');
+      this.mensajeTipo = 'error';
+      this.mensaje = 'Seleccione al menos una clase para apuntarse.';
       return;
     }
     const nombres = carrito.map(c => `${c.nombre} (${c.dia} ${c.hora})`).join(', ');
     this.carritoService.reservarClases();
-    alert(`Te has apuntado a: ${nombres}`);
+    this.mensajeTipo = 'success';
+    this.mensaje = `Te has apuntado a: ${nombres}`;
   }
 
   claseReservada(clase: any): boolean {

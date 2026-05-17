@@ -12,7 +12,7 @@ export class GestionarUsuarios {
   private apiURL =  'http://localhost:4000/usuarios';
 
   // Señal privada para el usuario autenticado (o null si nadie)
-  private _usuarioActual = signal<String | null>(null);
+  private _usuarioActual = signal<string | null>(null);
   usuarioActual = this._usuarioActual.asReadonly();
 
   private _rolUsuario = signal<'usuario' | 'admin' | null>(null);
@@ -102,8 +102,5 @@ export class GestionarUsuarios {
     return this.http.delete<any>(`${this.apiURL}/${id}`);
   }
 
-  obtenerPerfil() {
-    return this.http.get<any>(this.apiURL + '/perfil');
-  }
 
 }

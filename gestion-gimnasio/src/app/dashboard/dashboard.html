@@ -4,7 +4,7 @@
   <h1>FIT-KMKZ</h1>
 
   <div class="graficos-container">
-    <!-- GRÁFICO SALARIOS -->
+    <!-- grafico salarios -->
     <div class="grafico-card">
       <h2>Salarios de Monitores</h2>
       <ngx-charts-bar-vertical
@@ -22,7 +22,7 @@
       </ngx-charts-bar-vertical>
     </div>
 
-    <!-- GRÁFICO MARCAS -->
+    <!-- grafico marcas -->
     <div class="grafico-card">
       <h2>Marcas de Máquinas</h2>
       <ngx-charts-pie-chart
@@ -37,10 +37,6 @@
 </div>
 </ng-container>
 <ng-template #usuarioBlock>
-  <section class="usuario-welcome">
-    <h2>Hola, {{ gestionarUsuarios.usuarioActual() || 'invitado' }}</h2>
-  </section>
-
   <section class="horario-semanal">
     <h3>Horario semanal de clases</h3>
     <div class="calendar-grid">

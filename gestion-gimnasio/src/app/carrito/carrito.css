@@ -108,11 +108,34 @@
   background: #3cbb00;
 }
 
-.vacio p {
-  margin: 0;
-  background: #1a1a1a;
-  border: 1px solid #51ff00;
-  color: #f8fafc;
-  border-radius: 10px;
-  padding: 0.9rem;
-}
+  .mensaje {
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .mensaje.success {
+    background: #ecfdf5;
+    color: #166534;
+    border: 1px solid #22c55e;
+  }
+
+  .mensaje.error {
+    background: #f8d7da;
+    color: #9f1239;
+    border: 1px solid #f43f5e;
+  }
+
+  .vacio {
+    margin-bottom: 1rem;
+  }
+
+  .vacio p {
+    margin: 0;
+    background: #1a1a1a;
+    border: 1px solid #51ff00;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 0.9rem;
+  }

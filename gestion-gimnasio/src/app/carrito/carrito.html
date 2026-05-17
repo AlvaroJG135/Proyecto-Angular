@@ -4,6 +4,10 @@
     <span class="badge">{{ cantidad || 0 }}</span>
   </div>
 
+  <div *ngIf="mensaje" class="mensaje" [ngClass]="mensajeTipo">
+    {{ mensaje }}
+  </div>
+
   <div *ngIf="carrito$().length === 0" class="vacio">
     <p>No tienes clases añadidas. Ve a Dashboard para seleccionar las clases.</p>
   </div>

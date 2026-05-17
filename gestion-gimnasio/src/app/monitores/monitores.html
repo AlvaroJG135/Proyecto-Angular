@@ -54,11 +54,11 @@
     <!--Permite sincronizar los datos entre el componente y el html-->
     <input [(ngModel)]="nuevoMonitor.nombre" name="nombre" required />
     <label>Fecha de nacimiento:</label>
-    <input [(ngModel)]="nuevoMonitor.fechaNacimiento" name="fechaNacimiento" type="date" />
+    <input [(ngModel)]="nuevoMonitor.fechaNacimiento" name="fechaNacimiento" type="date" required />
     <label>Salario:</label>
-    <input [(ngModel)]="nuevoMonitor.salario" name="salario" type="number" min="0" />
+    <input [(ngModel)]="nuevoMonitor.salario" name="salario" type="number" min="0" required />
     <label>Turno:</label>
-    <input [(ngModel)]="nuevoMonitor.turno" name="turno" />
+    <input [(ngModel)]="nuevoMonitor.turno" name="turno" required />
     <label>Archivo:</label>
     <input type="file" (change)="onFotoSeleccionada($event)" accept="image/*" />
     <div class="modal-actions">

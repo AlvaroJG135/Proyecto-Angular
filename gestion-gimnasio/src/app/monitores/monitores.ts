@@ -166,17 +166,18 @@ export class Monitores {
     const monitor = {
       nombre: this.nuevoMonitor.nombre?.trim() || '',
       fechaNacimiento: this.nuevoMonitor.fechaNacimiento || '',
-      salario: this.nuevoMonitor.salario || 0,
+      salario: Number(this.nuevoMonitor.salario) || 0,
       turno: this.nuevoMonitor.turno || '',
       foto: this.nuevoMonitor.foto || '',
       nombreArchivo: this.nuevoMonitor.nombreArchivo || ''
     } as Monitor;
-    if (!monitor.nombre) { return; }
+    if (!monitor.nombre || !monitor.fechaNacimiento || !monitor.turno) {
+      console.error('Faltan campos obligatorios: nombre, fechaNacimiento o turno');
+      return;
+    }
     this.gestionarMonitores.addMonitor(monitor).subscribe({
         next: m => {
-          //comprueba si el monitor modificado tiene _id y actualiza la lista
           if (m && m._id) {
-            //añade el nuevo monitor a la lista
             this.monitores.push(m);
           }
           this.mostrarFormulario = false;
@@ -184,6 +185,7 @@ export class Monitores {
         },
         error: err => {
           console.error('Error al añadir monitor:', err);
+          console.error('Detalle de errores del backend:', err.error);
         }
       });
   }
@@ -196,5 +198,3 @@ export class Monitores {
   }
 
 }
-
-export class CardOverviewExample { }

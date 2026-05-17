@@ -6,7 +6,7 @@ import { Dashboard }   from './dashboard/dashboard';
 import { Carrito } from './carrito/carrito';
 import { MaquinaDetalle }  from './maquina-detalle/maquina-detalle';
 import { Registro } from './registro/registro';
-import { authGuard, adminGuard } from './guard-auth';
+import { authGuard, adminGuard, usuarioGuard } from './guard-auth';
 
 // Define todas las rutas de la aplicación Angular con sus respectivos componentes
 // Cada ruta especifica el path, componente asociado 
@@ -22,8 +22,8 @@ export const routes: Routes = [
     // Protegida con authGuard: solo usuarios autenticados pueden acceder
     // Ruta: /dashboard
     { path: 'dashboard', component: Dashboard, canActivate: [authGuard]},
-    // Ruta: /carrito
-    { path: 'carrito', component: Carrito, canActivate: [authGuard]},
+    // Ruta: /carrito (solo usuarios, no admins)
+    { path: 'carrito', component: Carrito, canActivate: [authGuard, usuarioGuard]},
     // SIN protección: accesible para usuarios no autenticados
     // Ruta: /registro
     { path: 'registro', component: Registro },

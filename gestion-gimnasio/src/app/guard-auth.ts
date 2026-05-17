@@ -30,3 +30,16 @@ export const adminGuard: CanActivateFn = () => {
   router.navigate(['/dashboard']);
   return false;
 };
+
+export const usuarioGuard: CanActivateFn = () => {
+  const auth = inject(GestionarUsuarios);
+  const router = inject(Router);
+
+  if (!auth.esAdmin()) {
+    return true;
+  }
+
+  console.log('usuarioGuard: admin no puede acceder, redirigiendo a /dashboard');
+  router.navigate(['/dashboard']);
+  return false;
+};

@@ -14,7 +14,9 @@ export function authInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn) 
   const auth = inject(GestionarUsuarios);
   const router = inject(Router)
 
-  return next(req).pipe(
+  const authReq = req.clone({ withCredentials: true });
+
+  return next(authReq).pipe(
     catchError((err) => {
       if (err instanceof HttpErrorResponse && err.status === 401) {
         // Si estamos no autorizados, hacemos logout o redirección
