@@ -1,6 +1,6 @@
 // Importa el modelo Maquina de MongoDB
 const Maquina = require('../modelos/Maquina');
-
+const { validationResult } = require('express-validator');
 
 // Obtiene la lista completa de máquinas de la base de datos
 // Ruta: GET /maquinas
@@ -30,7 +30,7 @@ async function getMaquina(req, res) {
     res.status(200).json(maquina);
   } catch (err) {
     // Captura y registra el error
-    console.error("Error en getMaquinas:", err.message);
+    console.error("Error en getMaquina:", err.message);
     // Retorna error 500
     res.status(500).json({"status":"Error al obtener la maquina"});
   }
@@ -39,6 +39,12 @@ async function getMaquina(req, res) {
 // Crea una nueva máquina con los datos del body de la petición
 // Ruta: POST /maquinas
 async function crearMaquina(req, res) {
+  // Validar entrada
+  const errores = validationResult(req);
+  if (!errores.isEmpty()) {
+    return res.status(400).json({ errores: errores.array() });
+  }
+
   try {
     // Crea una nueva instancia del modelo Maquina con los datos del request
     const newMaquina = new Maquina(req.body);
@@ -57,6 +63,12 @@ async function crearMaquina(req, res) {
 // Actualiza una máquina existente con los datos del body
 // Ruta: PUT /maquinas/:id
 async function actualizarMaquina(req, res) {
+  // Validar entrada
+  const errores = validationResult(req);
+  if (!errores.isEmpty()) {
+    return res.status(400).json({ errores: errores.array() });
+  }
+
   try {
     // Busca la máquina por ID y actualiza sus datos
     // { new: true } devuelve el documento actualizado (no el anterior)

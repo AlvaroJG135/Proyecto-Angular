@@ -13,8 +13,9 @@ const rutasMonitores = require('./rutas/rutasMonitores');
 const rutasMaquinas = require('./rutas/rutasMaquinas');
 const rutasUsuarios = require('./rutas/rutasUsuarios');
 
-
-app.use(express.json());
+// Aumenta el límite de tamaño del body para peticiones JSON grandes
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Configuración CORS (Cross-Origin Resource Sharing)
 // Permite que el frontend en localhost:4200 haga peticiones a este backend
@@ -29,9 +30,11 @@ const cookieParser = require('cookie-parser');
 
 app.use(cookieParser());
 
+require('dotenv').config();
+
 // Conecta a MongoDB usando Mongoose
 // URL: mongodb://usuario:contraseña@host:puerto/baseDatos?authSource=admin
-mongoose.connect('mongodb://root:example@localhost:27017/2daw?authSource=admin')
+mongoose.connect(process.env.MONGODB_URL)
   .then(() => console.log('Conectado a MongoDB')) // Éxito: muestra mensaje
   .catch(err => console.error('Error al conectar MongoDB', err)); // Error: muestra el error
 

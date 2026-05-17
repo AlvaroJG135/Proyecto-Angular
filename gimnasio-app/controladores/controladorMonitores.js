@@ -1,5 +1,6 @@
 // Importa el modelo Monitor de MongoDB
 const Monitor = require('../modelos/Monitor');
+const { validationResult } = require('express-validator');
 
 // Obtiene la lista completa de monitores de la base de datos
 // Ruta: GET /monitores
@@ -38,6 +39,12 @@ async function getMonitor(req, res) {
 // Crea un nuevo monitor con los datos del body de la petición
 // Ruta: POST /monitores
 async function crearMonitor(req, res) {
+  // Validar entrada
+  const errores = validationResult(req);
+  if (!errores.isEmpty()) {
+    return res.status(400).json({ errores: errores.array() });
+  }
+
   try {
     // Crea una nueva instancia del modelo Monitor con los datos del request
     const newMonitor = new Monitor(req.body);
@@ -56,6 +63,12 @@ async function crearMonitor(req, res) {
 // Actualiza un monitor existente con los datos del body
 // Ruta: PUT /monitores/:id
 async function actualizarMonitor(req, res) {
+  // Validar entrada
+  const errores = validationResult(req);
+  if (!errores.isEmpty()) {
+    return res.status(400).json({ errores: errores.array() });
+  }
+
   try {
     // Busca el monitor por ID y actualiza sus datos
     // { new: true } devuelve el documento actualizado (no el anterior)

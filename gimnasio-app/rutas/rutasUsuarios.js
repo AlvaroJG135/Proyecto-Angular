@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const ControladorUsuarios = require('../controladores/controladorUsuarios2.js');
-const authMiddleware= require('../utils/authMiddleware2.js');
+const ControladorUsuarios = require('../controladores/controladorUsuarios.js');
+const authMiddleware= require('../utils/authMiddleware.js');
 const { validarRegistro, validarLogin } = require('../utils/validateUsuarios.js');
 
 const authRole = require('../utils/authRole');

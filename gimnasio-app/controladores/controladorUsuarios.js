@@ -1,18 +1,18 @@
+require('dotenv').config();
 const bcrypt= require('bcrypt');
 const jwt = require('jsonwebtoken');
 const logger = require('../utils/logger.js')
 const Usuario = require('../modelos/Usuario');
 const { validationResult } = require('express-validator');
 
-
 // Clave secreta para JWT (en producción usar variable de entorno)
-const SECRET_KEY = 'clave_super_secreta'; // process.env.SECRET_KEY
+const SECRET_KEY = process.env.SECRET_KEY || 'clave_super_secreta';
 
 // Registro de usuario
 const usuarioRegistro = async (req, res) => {
   const errores = validationResult(req);
   if (!errores.isEmpty()) {
-    return res.status(400).json({ errores: errores.array() });
+    return res.status(401).json({ errores: errores.array() });
   }
 
   const userIP = req.ip;
@@ -32,10 +32,11 @@ const usuarioRegistro = async (req, res) => {
     const hashedPassword = await bcrypt.hash(clave, 10);
 
     // Crear usuario
-    const user = new Usuario({ codigo, 
-                            email, 
-                            nombre,
-                            clave: hashedPassword });
+    const userData = { codigo, email, nombre, clave: hashedPassword };
+    if (req.body.rol) {
+      userData.rol = req.body.rol;
+    }
+    const user = new Usuario(userData);
     await user.save();
     logger.info(`${userIP} - - "${method} ${url}" REGISTRO: Usuario registrado`)
     res.status(201).json({ message: 'Usuario registrado correctamente' });
@@ -66,10 +67,19 @@ const usuarioLogin = async (req, res) => {
       logger.info(`${userIP} - - "${method} ${url}" LOGIN: usuario/clave incorrecta de ${user.id} `);
       return res.status(401).json({ message: 'Usuario/clave incorrecta' });
     }
-    // Crear token JWT
-    const token = jwt.sign({ id: user._id, email: user.email }, SECRET_KEY, { expiresIn: '1h' });
+    // Crear token JWT incluyendo rol para verificación de admin
+    const token = jwt.sign({ id: user._id, email: user.email, rol: user.rol }, SECRET_KEY, { expiresIn: '1h' });
     logger.info(`${userIP} - - "${method} ${url}" LOGIN: login correcto de ${user.id} `);
-    res.json({ message: 'Login correcto', token });
+
+    // Guardar token en cookie
+    res.cookie('token', token, {
+      httpOnly: true,
+      secure: false, // cambiar a true si usas HTTPS
+      sameSite: 'strict',
+      maxAge: 60 * 60 * 3000, // 1 hora
+    });
+
+    res.json({ message: 'Login correcto', rol: user.rol, codigo: user.codigo, nombre: user.nombre });
   } catch (error) {
     logger.error(`${userIP} - - "${method} ${url}" REGISTRO: error ${error}}`)
     res.status(500).json({ message: 'Error en el login', error });
@@ -81,6 +91,7 @@ const usuarioLogout = (req, res) => {
   const userIP = req.ip;
   const method = req.method;
   const url = req.originalUrl;
+  res.clearCookie('token');
   logger.info(`${userIP} - - "${method} ${url}" LOGOUT: cierre de sesión `);
   res.json({ message: 'Logout correcto' });
 };
@@ -91,7 +102,7 @@ const getPerfil = async (req, res) => {
   const method = req.method;
   const url = req.originalUrl;
   try {
-    const user = await Usuario.findById(req.usuarioId).select('-password');
+    const user = await Usuario.findById(req.usuarioId).select('-clave');
     logger.info(`${userIP} - - "${method} ${url}" PERFIL: petición realizada `);
     res.json({ message: 'Perfil del usuario', user: user });
   } catch (error) {
@@ -99,5 +110,56 @@ const getPerfil = async (req, res) => {
   }
 };
 
+const getUsuarios = async (req, res) => {
+  try {
+    const usuarios = await Usuario.find().select('-clave');
+    res.status(200).json(usuarios);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener usuarios', error });
+  }
+};
 
-module.exports = { usuarioLogin, usuarioLogout, usuarioRegistro, getPerfil  };
+const getUsuario = async (req, res) => {
+  try {
+    const usuario = await Usuario.findById(req.params.id).select('-clave');
+    if (!usuario) return res.status(404).json({ message: 'Usuario no encontrado' });
+    res.status(200).json(usuario);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener usuario', error });
+  }
+};
+
+const actualizarUsuario = async (req, res) => {
+  try {
+    const datos = { ...req.body };
+    if (datos.clave) {
+      datos.clave = await bcrypt.hash(datos.clave, 10);
+    }
+    const updatedUser = await Usuario.findByIdAndUpdate(req.params.id, datos, { new: true }).select('-clave');
+    if (!updatedUser) return res.status(404).json({ message: 'Usuario no encontrado' });
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al actualizar usuario', error });
+  }
+};
+
+const eliminarUsuario = async (req, res) => {
+  try {
+    const deletedUser = await Usuario.findByIdAndDelete(req.params.id);
+    if (!deletedUser) return res.status(404).json({ message: 'Usuario no encontrado' });
+    res.status(200).json({ message: 'Usuario eliminado' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error al eliminar usuario', error });
+  }
+};
+
+module.exports = {
+  usuarioLogin,
+  usuarioLogout,
+  usuarioRegistro,
+  getPerfil,
+  getUsuarios,
+  getUsuario,
+  actualizarUsuario,
+  eliminarUsuario
+};
